@@ -1,3 +1,1 @@
 Dragon Ball App
-
-test
