@@ -1,3 +1,4 @@
+import { CharactersContextProvider } from './context/characters/CharactersContext';
 import { Route, Routes } from 'react-router-dom';
 
 import { Home } from './pages/Home/Home';
@@ -6,13 +7,13 @@ import { Header } from './components/Header/Header';
 
 function App() {
   return (
-    <div>
+    <CharactersContextProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favourite" element={<Favourite />} />
       </Routes>
-    </div>
+    </CharactersContextProvider>
   );
 }
 
