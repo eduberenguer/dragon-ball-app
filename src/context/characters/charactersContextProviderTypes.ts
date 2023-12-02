@@ -1,8 +1,12 @@
-import { Character } from '../../types/characterTypes';
+import { Character } from '../../models/characterTypes';
+
+export interface Props {
+  children: JSX.Element | JSX.Element[];
+}
 
 export interface CharactersContextType {
   currentPage: number;
   setCurrentPage: (page: number) => void;
-  characters: Character[]; // Define Character type as needed
+  characters: Character[];
   setCharacters: (characters: Character[]) => void;
 }
