@@ -1,17 +1,28 @@
-import { useContext } from 'react';
+import { useReducer } from 'react';
 import { CharactersRepository } from '../services/characters.repo';
-import { CharactersContext } from '../context/characters/CharactersContext';
+import {
+  charactersReducer,
+  characterState,
+} from '../reducer/characters.reducer';
+import * as ac from '../reducer/characters.action.creator';
 
-export function useCharacters() {
-  const repo = CharactersRepository();
-  const { setCharacters } = useContext(CharactersContext)!;
+export function useCharacters({ repo = CharactersRepository() } = {}) {
+  const initialState: characterState = {
+    characters: [],
+  };
+
+  const [stateCharacters, dispatch] = useReducer(
+    charactersReducer,
+    initialState
+  );
 
   const getCharacters = async () => {
-    const response = await repo.getAll();
-    setCharacters(response);
+    const data = await repo.getAll();
+    dispatch(ac.loadCharacterCreator(data));
   };
 
   return {
+    stateCharacters,
     getCharacters,
   };
 }

@@ -1,14 +1,14 @@
 import { Planet } from './planetTypes';
 
-export type Transformations {
+export type Transformations = {
   id: number;
   name: string;
   description: string;
   image: string;
   ki: number;
-}
+};
 
-export type Character {
+export type Character = {
   id: number;
   name: string;
   ki: string;
@@ -20,4 +20,4 @@ export type Character {
   affiliation: string;
   originPlanet: Planet;
   transformations: Transformations[];
-}
+};

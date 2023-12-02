@@ -1,19 +1,18 @@
-import { createContext, useState } from 'react';
-import { Character } from '../../models/characterTypes';
-import { CharactersContextType, Props } from './charactersContextProviderTypes';
+import { createContext } from 'react';
+import { Props } from './charactersContextProviderTypes';
+import { useCharacters } from '../../hooks/useCharacters';
+import { CharactersRepository } from '../../services/characters.repo';
 
-export const CharactersContext = createContext<CharactersContextType | null>(
-  null
-);
+type UseCharacterStructured = ReturnType<typeof useCharacters>;
+
+export const CharactersContext = createContext({} as UseCharacterStructured);
 
 export const CharactersContextProvider = ({ children }: Props) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [characters, setCharacters] = useState<Character[]>([]);
+  const repo = CharactersRepository();
+  const context = useCharacters({ repo });
 
   return (
-    <CharactersContext.Provider
-      value={{ currentPage, setCurrentPage, characters, setCharacters }}
-    >
+    <CharactersContext.Provider value={context as any}>
       {children}
     </CharactersContext.Provider>
   );
