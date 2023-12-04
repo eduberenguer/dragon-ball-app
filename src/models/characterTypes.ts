@@ -1,7 +1,7 @@
 import { Planet } from './planetTypes';
 
 export type Transformations = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   image: string;
@@ -9,7 +9,7 @@ export type Transformations = {
 };
 
 export type Character = {
-  id: number;
+  id: string;
   name: string;
   ki: string;
   maxKi: string;

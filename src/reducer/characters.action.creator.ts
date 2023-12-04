@@ -1,18 +1,12 @@
 import { charactersActions } from './characters.actions';
 import { Character } from '../models/characterTypes';
 
-interface Action {
+export interface CharacterActions {
   type: string;
-  payload?: any;
+  payload?: Character | Character[];
 }
 
-export interface CharacterActions extends Action {
-  payload: Character | Character[];
-}
-
-export const loadCharacterCreator = (
-  payload: Character[]
-): CharacterActions => {
+export const loadCharacters = (payload: Character[]): CharacterActions => {
   return {
     type: charactersActions.load,
     payload,
