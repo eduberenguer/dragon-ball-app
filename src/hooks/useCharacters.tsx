@@ -18,7 +18,7 @@ export function useCharacters({ repo = CharactersRepository() } = {}) {
 
   const getCharacters = async () => {
     const data = await repo.getAll();
-    dispatch(ac.loadCharacterCreator(data));
+    dispatch(ac.loadCharacters(data));
   };
 
   return {
