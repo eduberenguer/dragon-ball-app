@@ -1,15 +1,15 @@
 import { createContext } from 'react';
 import { Props } from './charactersContextProviderTypes';
 import { useCharacters } from '../../hooks/useCharacters';
-import { CharactersRepository } from '../../services/characters.repo';
+import { createCharactersRepository } from '../../services/characters.repo';
 
 type UseCharacterStructured = ReturnType<typeof useCharacters>;
 
 export const CharactersContext = createContext({} as UseCharacterStructured);
 
 export const CharactersContextProvider = ({ children }: Props) => {
-  const repo = CharactersRepository();
-  const context = useCharacters({ repo });
+  const repo = createCharactersRepository();
+  const context = useCharacters(repo);
 
   return (
     <CharactersContext.Provider value={context as any}>

@@ -5,12 +5,12 @@ import { CharactersContext } from '../../context/characters/CharactersContext';
 export const Detail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { stateCharacters } = useContext(CharactersContext);
+  const { stateCharacters, getCharacters } = useContext(CharactersContext);
 
   useEffect(() => {
     const handleRedirect = () => {
       if (stateCharacters.characters.length === 0) {
-        navigate('/');
+        getCharacters();
       }
     };
 

@@ -1,12 +1,13 @@
 import { useReducer } from 'react';
-import { CharactersRepository } from '../services/characters.repo';
 import {
   charactersReducer,
   characterState,
 } from '../reducer/characters.reducer';
 import * as ac from '../reducer/characters.action.creator';
+import { Repository } from '../services/repository';
+import { Character } from '../models/characterTypes';
 
-export function useCharacters({ repo = CharactersRepository() } = {}) {
+export function useCharacters(repo: Repository<Character>) {
   const initialState: characterState = {
     characters: [],
   };

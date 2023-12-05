@@ -7,7 +7,7 @@ type ApiResponse = {
   items: Character[];
 };
 
-export const CharactersRepository = (): Repository<Character> => {
+export const createCharactersRepository = (): Repository<Character> => {
   return {
     getAll: async () => {
       const response = await fetch(apiUrl);
