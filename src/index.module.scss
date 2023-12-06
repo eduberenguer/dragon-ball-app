@@ -14,9 +14,9 @@
   text-decoration: none;
   transition: color 100ms;
   user-select: none;
-}
 
-.button:hover {
-  background-color: #e72500;
-  color: #ffffff;
+  &:hover {
+    background-color: #e72500;
+    color: #ffffff;
+  }
 }
