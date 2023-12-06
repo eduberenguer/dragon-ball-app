@@ -1,12 +1,5 @@
 import { Planet } from './planetTypes';
-
-export type Transformations = {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  ki: number;
-};
+import { Transformations } from './tranformationsTypes';
 
 export type Character = {
   id: string;

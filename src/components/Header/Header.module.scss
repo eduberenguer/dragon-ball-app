@@ -1,6 +1,7 @@
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   border-bottom: 1px solid #ebebeb;
 
@@ -9,7 +10,7 @@
     color: #000000;
   }
 
-  & > :nth-child(2) {
+  &> :nth-child(2) {
     display: flex;
     justify-content: space-between;
     align-items: center;
