@@ -1,3 +1,19 @@
-a {
+.card {
+  display: flex;
+  border: solid 1px rgb(17, 16, 16);
+  border-radius: 10px;
+  padding: 30px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 10px 10px 10px 5px rgba(32, 31, 31, 0.2);
+    transform: scale(1.1, 1.1);
+  }
+
+}
+
+.link {
   text-decoration: none;
+  color: rgb(0, 0, 0);
 }
