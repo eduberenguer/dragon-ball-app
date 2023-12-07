@@ -1,5 +1,5 @@
-import { Planet } from './planetTypes';
-import { Transformations } from './tranformationsTypes';
+import { Planet } from './planet.types';
+import { Transformations } from './tranformations.types';
 
 export type Race =
   | 'Human'

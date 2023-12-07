@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import { Props } from './charactersContextProviderTypes';
-import { useCharacters } from '../../hooks/useCharacters';
+import { Props } from './characters.context.provider.types';
+import { useCharacters } from '../../hooks/use.characters';
 import { createCharactersRepository } from '../../services/characters.repo';
 
 type UseCharacterStructured = ReturnType<typeof useCharacters>;

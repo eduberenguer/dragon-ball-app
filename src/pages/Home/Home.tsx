@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
-import { CharactersContext } from '../../context/characters/CharactersContext';
-import { Character } from '../../models/characterTypes';
-import { Link } from 'react-router-dom';
+import { CharactersContext } from '../../context/characters/characters.context';
+import { Character } from '../../models/character.types';
+import { Card } from '../../components/card/card';
 
 export const Home = () => {
   const { stateCharacters, getCharacters } = useContext(CharactersContext);
@@ -12,14 +12,9 @@ export const Home = () => {
 
   return (
     <div>
-      <p>Soy la Home</p>
       {stateCharacters.characters.length &&
         stateCharacters.characters.map((character: Character) => (
-          <div>
-            <Link to={`/details/${character.id}`}>
-              <p key={character.id}>{character.name}</p>
-            </Link>
-          </div>
+          <Card {...character} key={character.id} />
         ))}
     </div>
   );

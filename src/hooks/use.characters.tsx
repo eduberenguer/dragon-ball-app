@@ -5,7 +5,7 @@ import {
 } from '../reducer/characters.reducer';
 import * as ac from '../reducer/characters.action.creator';
 import { Repository } from '../services/repository';
-import { Character } from '../models/characterTypes';
+import { Character } from '../models/character.types';
 
 export function useCharacters(repo: Repository<Character>) {
   const initialState: characterState = {

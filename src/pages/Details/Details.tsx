@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { CharactersContext } from '../../context/characters/CharactersContext';
+import { CharactersContext } from '../../context/characters/characters.context';
 
 export const Details = () => {
   const navigate = useNavigate();

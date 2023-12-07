@@ -1,5 +1,5 @@
 import { Repository } from './repository';
-import { Character } from '../models/characterTypes';
+import { Character } from '../models/character.types';
 import { apiUrl } from '../config';
 
 type ApiResponse = {
