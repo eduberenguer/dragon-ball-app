@@ -2,16 +2,21 @@ import { Repository } from './repository';
 import { Character } from '../models/character.types';
 import { apiUrl } from '../config';
 
-type ApiResponse = {
+export type ApiResponse = {
   items: Character[];
+  links: {
+    next: string;
+    previous: string;
+  };
 };
 
-export const createCharactersRepository = (): Repository<Character> => {
+export const createCharactersRepository = (): Repository<ApiResponse> => {
   return {
-    getAll: async () => {
-      const response = await fetch(apiUrl);
-      const { items }: ApiResponse = await response.json();
-      return items;
+    getAll: async (currentPage) => {
+      const urlFinal = `${apiUrl}?page=${currentPage}`;
+      const data = await fetch(urlFinal);
+      const response: ApiResponse = await data.json();
+      return response;
     },
   };
 };

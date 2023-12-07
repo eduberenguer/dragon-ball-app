@@ -1,3 +1,3 @@
 export interface Repository<X> {
-  getAll: () => Promise<X[]>;
+  getAll: (currentPage: number) => Promise<X>;
 }
