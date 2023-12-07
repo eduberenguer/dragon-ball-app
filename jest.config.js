@@ -7,10 +7,10 @@ export default {
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
   coveragePathIgnorePatterns: [
     'src/main.tsx',
-    'src/App.tsx',
     'src/reportWebVitals.ts',
     'src/services/characters.repo.ts',
     'src/vite-env.d.ts',
+    'src/config.ts',
   ],
   resolver: 'jest-ts-webcompat-resolver',
   moduleNameMapper: {
