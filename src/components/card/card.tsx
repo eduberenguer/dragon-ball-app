@@ -8,8 +8,10 @@ export const Card = (character: Character) => {
   return (
     <div className={style.card}>
       <Link to={`/details/${character.id}`} className={style.link}>
-        <p key={character.id}>{character.name}</p>
-        <img src={transformSizeImage(character.image)} alt={character.name} />
+        <div key={character.id}>
+          <p>{character.name}</p>
+          <img src={transformSizeImage(character.image)} alt={character.name} />
+        </div>
       </Link>
     </div>
   );
