@@ -1,7 +1,6 @@
 import { Repository } from './repository';
 import { Character } from '../models/characterTypes';
-
-const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+import { apiUrl } from '../config';
 
 type ApiResponse = {
   items: Character[];

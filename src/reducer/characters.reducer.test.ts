@@ -18,5 +18,17 @@ describe('characters reducer', () => {
 
       expect(state.characters).toEqual(characters);
     });
+
+    test('should return the default state ', () => {
+      const characters: Character[] = [];
+      const action = {
+        type: '',
+        payload: characters,
+      };
+
+      const state = charactersReducer(initialState, action);
+
+      expect(state.characters).toEqual(characters);
+    });
   });
 });

@@ -1,7 +1,8 @@
 import { charactersActions } from './characters.actions';
 import { loadCharacters } from './characters.action.creator';
+import { Character } from '../models/characterTypes';
 
-const mockCharacters = [
+const mockCharacters: Character[] = [
   {
     id: '1',
     name: 'Goku',
