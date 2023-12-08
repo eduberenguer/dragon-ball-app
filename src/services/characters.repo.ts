@@ -27,15 +27,18 @@ export const createCharactersRepository = (): Repository<ApiResponseData> => {
       const data = await fetch(urlFinal);
       const response = await data.json();
       return {
-        items: [],
-        links: {
-          next: '',
-          previous: '',
-        },
-        meta: {
-          totalPages: 1,
-        },
+        ...response,
         character: response,
+      };
+    },
+    getCharactersByOptions: async (option, value) => {
+      const optionBuild = `?${option}=${value}`;
+      const urlFinal = `${apiUrl}${optionBuild}`;
+      const data = await fetch(urlFinal);
+      const response = await data.json();
+      return {
+        ...response,
+        items: response,
       };
     },
   };

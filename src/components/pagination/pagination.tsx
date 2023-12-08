@@ -1,26 +1,30 @@
-import { useContext } from 'react';
-import { CharactersContext } from '../../context/characters/characters.context';
-
 import style from './pagination.module.scss';
 import genericStyle from '../../index.module.scss';
 
-export const Pagination = () => {
-  const { pagination, changePage } = useContext(CharactersContext);
+export const Pagination = ({
+  pagination,
+  handleChangePage,
+}: {
+  pagination: any;
+  handleChangePage: (direction: 'next' | 'previous') => void;
+}) => {
   const { currentPage, previousPage, nextPage, totalPages } = pagination;
 
   return (
     <div className={style.pagination}>
       <button
-        onClick={() => changePage('previous')}
+        onClick={() => handleChangePage('previous')}
         className={`${
           !previousPage ? genericStyle.button_disabled : genericStyle.button
         }`}
       >
         ＜
       </button>
-      <div>{`${currentPage} of ${totalPages}`}</div>
+      {currentPage !== undefined && totalPages !== undefined
+        ? `${currentPage} of ${totalPages}`
+        : null}
       <button
-        onClick={() => changePage('next')}
+        onClick={() => handleChangePage('next')}
         className={`${
           nextPage ? genericStyle.button : genericStyle.button_disabled
         }`}

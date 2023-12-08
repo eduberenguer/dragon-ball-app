@@ -1,11 +1,9 @@
 import { useReducer, useState } from 'react';
-import {
-  charactersReducer,
-  characterState,
-} from '../reducer/characters.reducer';
+import { charactersReducer } from '../reducer/characters.reducer';
 import * as ac from '../reducer/characters.action.creator';
 import { Repository } from '../services/repository';
 import { ApiResponseData } from '../services/characters.repo';
+import { initialState } from '../mocks/initial.state.reducer';
 
 export function useCharacters(repo: Repository<ApiResponseData>) {
   const [pagination, setPagination] = useState({
@@ -14,11 +12,6 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     currentPage: 1,
     totalPages: 0,
   });
-
-  const initialState: characterState = {
-    characters: [],
-    character: null,
-  };
 
   const [stateCharacters, dispatch] = useReducer(
     charactersReducer,
@@ -44,6 +37,22 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     }
   };
 
+  const getCharactersByOptions = async (option: string, value: string) => {
+    if (value === 'default') {
+      getCharacters();
+    } else {
+      const response = await repo.getCharactersByOptions(option, value);
+      console.log('response', response);
+      setPagination({
+        nextPage: '',
+        previousPage: '',
+        currentPage: 1,
+        totalPages: 1,
+      });
+      dispatch(ac.loadCharactersByOptions(response.items));
+    }
+  };
+
   const changePage = (direction: 'next' | 'previous') => {
     setPagination((prev) => ({
       ...prev,
@@ -58,5 +67,6 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     pagination,
     changePage,
     getCharacterById,
+    getCharactersByOptions,
   };
 }

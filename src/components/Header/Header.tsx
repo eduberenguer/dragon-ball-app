@@ -14,7 +14,7 @@ export const Header = () => {
         </div>
         <div>
           <button className={genericStyle.button}>
-            <Link to="/favourites">Favourites</Link>
+            <Link to="/favourites">Favoritos</Link>
           </button>
           <p>⚫️</p>
         </div>

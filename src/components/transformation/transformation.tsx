@@ -23,6 +23,7 @@ export const Transformation = ({
             <button
               onClick={() => changeImageTransformation(tranformation.image)}
               className={genericStyle.button}
+              key={tranformation.id}
             >
               {tranformation.name}–
             </button>

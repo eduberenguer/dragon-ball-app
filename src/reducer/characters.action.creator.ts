@@ -19,3 +19,10 @@ export const loadCharacterById = (payload: Character): CharacterActions => {
     payload,
   };
 };
+
+export const loadCharactersByOptions = (payload: any): CharacterActions => {
+  return {
+    type: charactersActions.loadCharactersByOptions,
+    payload,
+  };
+};
