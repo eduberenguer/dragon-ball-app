@@ -8,6 +8,9 @@ export type ApiResponse = {
     next: string;
     previous: string;
   };
+  meta: {
+    totalPages: number;
+  };
 };
 
 export const createCharactersRepository = (): Repository<ApiResponse> => {

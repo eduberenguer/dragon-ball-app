@@ -12,6 +12,7 @@ export function useCharacters(repo: Repository<ApiResponse>) {
     nextPage: '',
     previousPage: '',
     currentPage: 1,
+    totalPages: 0,
   });
 
   const initialState: characterState = {
@@ -29,6 +30,7 @@ export function useCharacters(repo: Repository<ApiResponse>) {
       nextPage: response.links.next,
       previousPage: response.links.previous,
       currentPage: pagination.currentPage,
+      totalPages: response.meta.totalPages,
     });
     const { items } = response;
     dispatch(ac.loadCharacters(items));

@@ -6,7 +6,7 @@ import genericStyle from '../../index.module.scss';
 
 export const Pagination = () => {
   const { pagination, changePage } = useContext(CharactersContext);
-  const { currentPage, previousPage, nextPage } = pagination;
+  const { currentPage, previousPage, nextPage, totalPages } = pagination;
 
   return (
     <div className={style.pagination}>
@@ -18,7 +18,7 @@ export const Pagination = () => {
       >
         ＜
       </button>
-      <div>{`${currentPage} of 6`}</div>
+      <div>{`${currentPage} of ${totalPages}`}</div>
       <button
         onClick={() => changePage('next')}
         className={`${
