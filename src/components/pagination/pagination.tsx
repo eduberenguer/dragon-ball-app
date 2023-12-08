@@ -1,11 +1,12 @@
 import style from './pagination.module.scss';
 import genericStyle from '../../index.module.scss';
+import { PaginationType } from '../../models/pagination.type';
 
 export const Pagination = ({
   pagination,
   handleChangePage,
 }: {
-  pagination: any;
+  pagination: PaginationType;
   handleChangePage: (direction: 'next' | 'previous') => void;
 }) => {
   const { currentPage, previousPage, nextPage, totalPages } = pagination;
