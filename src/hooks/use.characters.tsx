@@ -5,9 +5,9 @@ import {
 } from '../reducer/characters.reducer';
 import * as ac from '../reducer/characters.action.creator';
 import { Repository } from '../services/repository';
-import { ApiResponse } from '../services/characters.repo';
+import { ApiResponseData } from '../services/characters.repo';
 
-export function useCharacters(repo: Repository<ApiResponse>) {
+export function useCharacters(repo: Repository<ApiResponseData>) {
   const [pagination, setPagination] = useState({
     nextPage: '',
     previousPage: '',
@@ -17,6 +17,7 @@ export function useCharacters(repo: Repository<ApiResponse>) {
 
   const initialState: characterState = {
     characters: [],
+    character: null,
   };
 
   const [stateCharacters, dispatch] = useReducer(
@@ -32,8 +33,15 @@ export function useCharacters(repo: Repository<ApiResponse>) {
       currentPage: pagination.currentPage,
       totalPages: response.meta.totalPages,
     });
-    const { items } = response;
+    const items = 'items' in response ? response.items : [];
     dispatch(ac.loadCharacters(items));
+  };
+
+  const getCharacterById = async (id: string) => {
+    const response = await repo.getItemById(id);
+    if (response.character) {
+      dispatch(ac.loadCharacterById(response.character));
+    }
   };
 
   const changePage = (direction: 'next' | 'previous') => {
@@ -49,5 +57,6 @@ export function useCharacters(repo: Repository<ApiResponse>) {
     getCharacters,
     pagination,
     changePage,
+    getCharacterById,
   };
 }

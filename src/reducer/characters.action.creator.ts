@@ -12,3 +12,10 @@ export const loadCharacters = (payload: Character[]): CharacterActions => {
     payload,
   };
 };
+
+export const loadCharacterById = (payload: Character): CharacterActions => {
+  return {
+    type: charactersActions.loadById,
+    payload,
+  };
+};

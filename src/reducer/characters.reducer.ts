@@ -4,6 +4,7 @@ import { CharacterActions } from './characters.action.creator';
 
 export type characterState = {
   characters: Character[];
+  character: Character | null;
 };
 
 export const charactersReducer = (
@@ -15,6 +16,12 @@ export const charactersReducer = (
       return {
         ...state,
         characters: action.payload as Character[],
+        character: null,
+      };
+    case charactersActions.loadById:
+      return {
+        ...state,
+        character: action.payload as Character,
       };
     default:
       return state;
