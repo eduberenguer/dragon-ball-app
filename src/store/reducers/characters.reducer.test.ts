@@ -1,6 +1,6 @@
 import { characterState, charactersReducer } from './characters.reducer';
-import { Character } from '../models/character.types';
-import { charactersActions } from './characters.actions';
+import { Character } from '../../models/character.types';
+import { charactersActions } from '../actions/characters.actions';
 
 const initialState: characterState = {
   characters: [],

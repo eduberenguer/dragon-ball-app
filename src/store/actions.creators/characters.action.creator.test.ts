@@ -1,6 +1,6 @@
-import { charactersActions } from './characters.actions';
+import { charactersActions } from '../actions/characters.actions';
 import { loadCharacters } from './characters.action.creator';
-import { Character } from '../models/character.types';
+import { Character } from '../../models/character.types';
 
 const mockCharacters: Character[] = [
   {

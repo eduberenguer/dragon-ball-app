@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { CharactersContext } from '../../context/characters/characters.context';
+import { CharactersContext } from '../../context/context';
 import { Character } from '../../models/character.types';
 import { Card } from '../../components/card/card';
 import { Pagination } from '../../components/pagination/pagination';
@@ -19,7 +19,7 @@ export const Home = () => {
 
   useEffect(() => {
     getCharacters();
-  }, [pagination.currentPage]);
+  }, [pagination?.currentPage]);
 
   const handleOption = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value as Race;

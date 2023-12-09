@@ -1,9 +1,9 @@
 import { useReducer, useState } from 'react';
-import { charactersReducer } from '../reducer/characters.reducer';
-import * as ac from '../reducer/characters.action.creator';
+import { charactersReducer } from '../store/reducers/characters.reducer';
+import * as ac from '../store/actions.creators/characters.action.creator';
 import { Repository } from '../services/repository';
 import { ApiResponseData } from '../services/characters.repo';
-import { initialState } from '../mocks/initial.state.reducer';
+import { initialStateCharacters } from '../mocks/initial.state.reducer';
 
 export function useCharacters(repo: Repository<ApiResponseData>) {
   const [pagination, setPagination] = useState({
@@ -15,7 +15,7 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
 
   const [stateCharacters, dispatch] = useReducer(
     charactersReducer,
-    initialState
+    initialStateCharacters
   );
 
   const getCharacters = async () => {
@@ -42,7 +42,6 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
       getCharacters();
     } else {
       const response = await repo.getCharactersByOptions(option, value);
-      console.log('response', response);
       setPagination({
         nextPage: '',
         previousPage: '',

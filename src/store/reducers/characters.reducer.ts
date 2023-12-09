@@ -1,10 +1,10 @@
-import { Character } from '../models/character.types';
-import { charactersActions } from './characters.actions';
-import { CharacterActions } from './characters.action.creator';
+import { Character } from '../../models/character.types';
+import { charactersActions } from '../actions/characters.actions';
+import { CharacterActions } from '../actions.creators/characters.action.creator';
 
 export type characterState = {
   characters: Character[];
-  character: Character | null;
+  character: Character | undefined;
   links: {
     next: '';
     previous: '';
@@ -23,7 +23,7 @@ export const charactersReducer = (
       return {
         ...state,
         characters: action.payload as Character[],
-        character: null,
+        character: undefined,
       };
     case charactersActions.loadById:
       return {

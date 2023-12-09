@@ -8,7 +8,7 @@ export const Transformation = ({
   stateCharacter,
   setChangeTransformationImage,
 }: {
-  stateCharacter: Character | null;
+  stateCharacter: Character | undefined;
   setChangeTransformationImage: (image: string) => void;
 }) => {
   const changeImageTransformation = (image: string) => {

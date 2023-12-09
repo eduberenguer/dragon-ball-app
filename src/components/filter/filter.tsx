@@ -9,7 +9,7 @@ export const Filter = ({
   handleOption,
 }: {
   pagination: PaginationType;
-  handleOption: any;
+  handleOption: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }) => {
   const [selected] = useState();
 
