@@ -16,17 +16,4 @@ describe('Header component', () => {
 
     expect(link).toHaveAttribute('href', '/');
   });
-
-  test("Then it should show a Link with text 'Favourites'", () => {
-    render(
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>
-    );
-
-    const linkText = 'Favourites';
-    const link = screen.getByText(linkText).closest('a');
-
-    expect(link).toHaveAttribute('href', '/favourites');
-  });
 });

@@ -31,17 +31,9 @@ export const Details = () => {
       (item) => item.id === id
     );
     if (isFavourite) {
-      return (
-        <span role="img" aria-label="heart">
-          ❤️
-        </span>
-      );
+      return <img src="../hairBlond.png" alt="blond" width="80px" />;
     }
-    return (
-      <span role="img" aria-label="heart">
-        🩶
-      </span>
-    );
+    return <img src="../hairBlack.png" alt="black" width="80px" />;
   };
 
   return (
@@ -54,13 +46,16 @@ export const Details = () => {
               : stateCharacters?.character?.image
           }
           alt={stateCharacters?.character?.name}
-        />
+        />{' '}
       </div>
+
       <div className={style.info}>
-        <p>{stateCharacters?.character?.name}</p>
-        <p onClick={() => handleFavourite(stateCharacters.character)}>
-          {isFavourite(stateCharacters?.character?.id)}
-        </p>
+        <div className={style.favourite}>
+          <p>{stateCharacters?.character?.name}</p>
+          <span onClick={() => handleFavourite(stateCharacters.character)}>
+            {isFavourite(stateCharacters?.character?.id)}
+          </span>
+        </div>
         <p>
           Planeta de origen: {stateCharacters?.character?.originPlanet.name}
         </p>

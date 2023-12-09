@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Character } from '../../models/character.types';
-// import { transformSizeImage } from '../../utils/transform.size.image';
 
 import style from './Card.module.scss';
 

@@ -16,4 +16,16 @@
     align-items: center;
     gap: 10px;
   }
+
+  .container_button {
+    display: flex;
+  }
+
+  img {
+    width: 50px;
+  }
+
+  span {
+    cursor: pointer;
+  }
 }

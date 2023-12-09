@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { CharactersContext } from '../../context/context';
+import { CharactersContext, UiContext } from '../../context/context';
 import { Character } from '../../models/character.types';
 import { Card } from '../../components/card/card';
 import { Pagination } from '../../components/pagination/pagination';
@@ -17,6 +17,8 @@ export const Home = () => {
     changePage,
   } = useContext(CharactersContext);
 
+  const { stateUi } = useContext(UiContext);
+
   useEffect(() => {
     getCharacters();
   }, [pagination?.currentPage]);
@@ -33,7 +35,7 @@ export const Home = () => {
   return (
     <>
       <Filter pagination={pagination} handleOption={handleOption} />
-      <div className={style.container}>
+      <div className={stateUi?.mode ? style.container : style.mode_dark}>
         {stateCharacters.characters.length ? (
           stateCharacters.characters.map((character: Character) => (
             <Card {...character} key={character.id} />

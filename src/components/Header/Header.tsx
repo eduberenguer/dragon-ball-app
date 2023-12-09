@@ -1,9 +1,17 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UiContext } from '../../context/context';
 
 import style from './Header.module.scss';
 import genericStyle from '../../index.module.scss';
 
 export const Header = () => {
+  const { toggleTheme, stateUi } = useContext(UiContext);
+
+  const toggleMode = () => {
+    toggleTheme();
+  };
+
   return (
     <>
       <header className={style.header}>
@@ -12,11 +20,13 @@ export const Header = () => {
             Dragon Ball
           </Link>
         </div>
-        <div>
+        <div className={style.container_button}>
           <button className={genericStyle.button}>
-            <Link to="/favourites">Favoritos</Link>
+            <Link to="/favourites">
+              <img src="./hairBlond.png" alt="blond" />
+            </Link>
           </button>
-          <p>⚫️</p>
+          <span onClick={toggleMode}>{stateUi.mode ? '⚫️' : '⚪️'}</span>
         </div>
       </header>
     </>

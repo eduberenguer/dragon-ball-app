@@ -2,14 +2,14 @@ import { Character } from '../../models/character.types';
 import { favouritesActions } from '../actions/favourites.actions';
 import { FavouriteActions } from '../actions.creators/favourites.action.creator';
 
-export type favouritesState = {
+export type favouriteState = {
   favourites: Character[];
 };
 
 export const favouritesReducer = (
-  state: favouritesState,
+  state: favouriteState,
   action: FavouriteActions
-): favouritesState => {
+): favouriteState => {
   switch (action.type) {
     case favouritesActions.loadFavourites:
       return {

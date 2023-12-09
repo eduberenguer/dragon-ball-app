@@ -18,9 +18,9 @@ export type Race =
   | 'benigno'
   | 'Unknown';
 
-type Gender = 'Male' | 'Female' | 'Unknown';
+export type Gender = 'Male' | 'Female' | 'Unknown';
 
-type Affiliation =
+export type Affiliation =
   | 'Z Fighter'
   | 'Red Ribbon Army'
   | 'Namekian'

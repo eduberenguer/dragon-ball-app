@@ -1,9 +1,9 @@
 import { characterState } from '../store/reducers/characters.reducer';
-import { favouritesState } from '../store/reducers/favourites.reducer';
+import { favouriteState } from '../store/reducers/favourites.reducer';
 
 export const initialStateCharacters: characterState = {
   characters: [],
-  character: null,
+  character: undefined,
   links: {
     next: '',
     previous: '',
@@ -13,6 +13,10 @@ export const initialStateCharacters: characterState = {
   },
 };
 
-export const initialStateFavourites: favouritesState = {
+export const initialStateFavourites: favouriteState = {
   favourites: [],
+};
+
+export const initialStateUi = {
+  mode: 'light',
 };
