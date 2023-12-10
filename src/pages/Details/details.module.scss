@@ -38,9 +38,13 @@
     display: flex;
     gap: 20px;
     align-items: center;
-  }
-}
 
-img {
-  cursor: pointer;
+    img {
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
 }

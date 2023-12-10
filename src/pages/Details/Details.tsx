@@ -52,7 +52,6 @@ export const Details = () => {
           alt={stateCharacters?.character?.name}
         />{' '}
       </div>
-
       <div className={style.info}>
         <div className={style.favourite}>
           <p>{stateCharacters?.character?.name}</p>
