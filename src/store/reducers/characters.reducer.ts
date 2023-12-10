@@ -35,6 +35,11 @@ export const charactersReducer = (
         ...state,
         characters: action.payload as Character[],
       };
+    case charactersActions.changeTransformationPhoto:
+      return {
+        ...state,
+        character: action.payload as Character,
+      };
     default:
       return state;
   }

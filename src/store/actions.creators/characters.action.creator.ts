@@ -26,3 +26,12 @@ export const loadCharactersByOptions = (payload: any): CharacterActions => {
     payload,
   };
 };
+
+export const changeTransformationPhoto = (
+  payload: Character
+): CharacterActions => {
+  return {
+    type: charactersActions.changeTransformationPhoto,
+    payload,
+  };
+};

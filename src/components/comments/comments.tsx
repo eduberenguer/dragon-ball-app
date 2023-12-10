@@ -34,8 +34,8 @@ export const Comments = ({ character }: any) => {
       <div>
         {stateFavourites?.favourites?.map((item) => {
           if (item.id === character.id) {
-            return item?.comments?.map((comment) => {
-              return <div>{comment}</div>;
+            return item?.comments?.map((comment, index) => {
+              return <div key={index}>{comment}</div>;
             });
           }
         })}

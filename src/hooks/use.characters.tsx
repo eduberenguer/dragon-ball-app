@@ -4,6 +4,7 @@ import * as ac from '../store/actions.creators/characters.action.creator';
 import { Repository } from '../services/repository';
 import { ApiResponseData } from '../services/characters.repo';
 import { initialStateCharacters } from '../mocks/initial.state.reducer';
+import { Character } from '../models/character.types';
 
 export function useCharacters(repo: Repository<ApiResponseData>) {
   const [pagination, setPagination] = useState({
@@ -52,6 +53,10 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     }
   };
 
+  const changeTransformationPhoto = (character: Character) => {
+    ac.changeTransformationPhoto(character);
+  };
+
   const changePage = (direction: 'next' | 'previous') => {
     setPagination((prev) => ({
       ...prev,
@@ -67,5 +72,6 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     changePage,
     getCharacterById,
     getCharactersByOptions,
+    changeTransformationPhoto,
   };
 }

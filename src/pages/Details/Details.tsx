@@ -9,21 +9,29 @@ import { Character } from '../../models/character.types';
 
 export const Details = () => {
   const { id } = useParams();
-  const { stateCharacters, getCharacterById } = useContext(CharactersContext);
+  const { stateCharacters, getCharacterById, changeTransformationPhoto } =
+    useContext(CharactersContext);
   const { toggleFavourite, stateFavourites } = useContext(FavouritesContext);
-  const [changeTransformationImage, setChangeTransformationImage] = useState<
-    string | undefined
-  >('');
-
-  console.log('changeTransformationImage', changeTransformationImage);
+  const [currentCharacter, setCurrentCharacter] = useState<
+    Character | undefined
+  >();
 
   useEffect(() => {
     const handleCharacter = () => {
       getCharacterById(String(id));
     };
-    setChangeTransformationImage(stateCharacters?.character?.image);
     handleCharacter();
-  }, []);
+  }, [currentCharacter]);
+
+  const changesPhoto = (photo: string) => {
+    const newCharacter = {
+      ...stateCharacters?.character,
+      image: photo,
+    };
+
+    changeTransformationPhoto(newCharacter as Character);
+    setCurrentCharacter(newCharacter as Character);
+  };
 
   const handleFavourite = (character: Character | undefined) => {
     toggleFavourite(character);
@@ -40,11 +48,7 @@ export const Details = () => {
     <section className={style.container}>
       <div className={style.image}>
         <img
-          src={
-            changeTransformationImage
-              ? changeTransformationImage
-              : stateCharacters?.character?.image
-          }
+          src={currentCharacter?.image || stateCharacters?.character?.image}
           alt={stateCharacters?.character?.name}
         />{' '}
       </div>
@@ -67,7 +71,7 @@ export const Details = () => {
         <p>{stateCharacters?.character?.description}</p>
         <Transformation
           stateCharacter={stateCharacters.character}
-          setChangeTransformationImage={setChangeTransformationImage}
+          setChangeTransformationImage={changesPhoto}
         />
         {isFavourite(stateCharacters?.character?.id ?? '') && (
           <Comments character={stateCharacters.character} />
