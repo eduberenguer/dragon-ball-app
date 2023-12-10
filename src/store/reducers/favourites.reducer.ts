@@ -35,12 +35,10 @@ export const favouritesReducer = (
       const addCommentAction = action as {
         payload: { id: string; comment: string };
       };
-      console.log('addCommentAction', addCommentAction);
       return {
         ...state,
         favourites: state.favourites.map((character) => {
           if (String(character.id) === addCommentAction?.payload?.id) {
-            console.log('entra');
             return {
               ...character,
               comments: [

@@ -7,11 +7,12 @@ export const useUi = () => {
   const [stateUi, dispatch] = useReducer(uiReducer, initialStateUi);
 
   const toggleTheme = () => {
+    console.log(stateUi.mode);
     if (stateUi.mode) {
-      dispatch(ac.toggleMode({ mode: false }));
+      dispatch(ac.toggleMode(false));
       return;
     }
-    dispatch(ac.toggleMode({ mode: true }));
+    dispatch(ac.toggleMode(true));
   };
 
   return {

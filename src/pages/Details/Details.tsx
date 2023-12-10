@@ -15,13 +15,15 @@ export const Details = () => {
     string | undefined
   >('');
 
+  console.log('changeTransformationImage', changeTransformationImage);
+
   useEffect(() => {
     const handleCharacter = () => {
       getCharacterById(String(id));
     };
     setChangeTransformationImage(stateCharacters?.character?.image);
     handleCharacter();
-  }, [id]);
+  }, []);
 
   const handleFavourite = (character: Character | undefined) => {
     toggleFavourite(character);

@@ -10,7 +10,7 @@ export const uiReducer = (state: UiState, action: UiActions): UiState => {
     case uiActions.visiblityMode:
       return {
         ...state,
-        mode: action.payload.mode,
+        mode: action.payload,
       };
     default:
       return state;

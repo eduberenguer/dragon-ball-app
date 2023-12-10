@@ -2,12 +2,12 @@ import { uiActions } from '../actions/ui.actions';
 
 export interface UiActions {
   type: string;
-  payload?: any;
+  payload: boolean;
 }
 
 export const toggleMode = (payload: boolean): UiActions => {
   return {
-    type: uiActions.darkMode,
+    type: uiActions.visiblityMode,
     payload,
   };
 };

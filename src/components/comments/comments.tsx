@@ -31,15 +31,15 @@ export const Comments = ({ character }: any) => {
         />
         <button>Enviar</button>
       </form>
-      {
-        <div>
-          {stateFavourites.favourites.map((item) =>
-            item?.comments?.map((item, index) => {
-              return <p key={index}>{item}</p>;
-            })
-          )}
-        </div>
-      }
+      <div>
+        {stateFavourites?.favourites?.map((item) => {
+          if (item.id === character.id) {
+            return item?.comments?.map((comment) => {
+              return <div>{comment}</div>;
+            });
+          }
+        })}
+      </div>
     </div>
   );
 };
