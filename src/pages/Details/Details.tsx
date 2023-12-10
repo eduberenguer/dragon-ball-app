@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState, SyntheticEvent } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CharactersContext, FavouritesContext } from '../../context/context';
 import { Transformation } from '../../components/transformation/transformation';
+import { Comments } from '../../components/comments/comments';
 
 import style from './details.module.scss';
 import { Character } from '../../models/character.types';
@@ -9,8 +10,7 @@ import { Character } from '../../models/character.types';
 export const Details = () => {
   const { id } = useParams();
   const { stateCharacters, getCharacterById } = useContext(CharactersContext);
-  const { toggleFavourite, stateFavourites, addComment } =
-    useContext(FavouritesContext);
+  const { toggleFavourite, stateFavourites } = useContext(FavouritesContext);
   const [changeTransformationImage, setChangeTransformationImage] = useState<
     string | undefined
   >('');
@@ -32,16 +32,6 @@ export const Details = () => {
       (item) => item.id === id
     );
     return isFavourite;
-  };
-
-  const handleComment = (
-    character: Character | undefined,
-    event: SyntheticEvent
-  ) => {
-    event.preventDefault();
-    const element = event.target as HTMLFormElement;
-    const comment = element.elements.namedItem('comment') as HTMLInputElement;
-    addComment(character, comment.value);
   };
 
   return (
@@ -77,31 +67,9 @@ export const Details = () => {
           stateCharacter={stateCharacters.character}
           setChangeTransformationImage={setChangeTransformationImage}
         />
-        {stateCharacters?.character?.id &&
-          isFavourite(stateCharacters?.character?.id) && (
-            <form
-              onSubmit={(event) =>
-                handleComment(stateCharacters?.character, event)
-              }
-            >
-              <p>Añade comentarios: </p>
-              <input
-                type="text"
-                placeholder="Añade un comentario"
-                name="comment"
-              />
-              <button>Enviar</button>
-            </form>
-          )}
-        {
-          <div>
-            {stateFavourites?.favourites?.map((item) =>
-              item?.comments?.map((item, index) => {
-                return <p key={index}>{item}</p>;
-              })
-            )}
-          </div>
-        }
+        {isFavourite(stateCharacters?.character?.id ?? '') && (
+          <Comments character={stateCharacters.character} />
+        )}
       </div>
     </section>
   );

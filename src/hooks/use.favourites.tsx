@@ -26,6 +26,7 @@ export const useFavourites = () => {
   };
 
   const addComment = (character: Character | undefined, comment: string) => {
+    console.log('addComment', character, comment);
     dispatch(ac.addComment({ id: String(character?.id), comment }));
   };
 

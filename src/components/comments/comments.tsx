@@ -1,10 +1,10 @@
 import { SyntheticEvent, useContext, useState } from 'react';
-import { CharactersContext, FavouritesContext } from '../../context/context';
+import { FavouritesContext } from '../../context/context';
 import { Character } from '../../models/character.types';
 
-export const Comments = ({ character }: { character: Character }) => {
+export const Comments = ({ character }: any) => {
   const [commentValue, setCommentValue] = useState<string>('');
-  const { stateCharacters } = useContext(CharactersContext);
+  const { stateFavourites } = useContext(FavouritesContext);
   const { addComment } = useContext(FavouritesContext);
 
   const handleComment = (
@@ -33,7 +33,7 @@ export const Comments = ({ character }: { character: Character }) => {
       </form>
       {
         <div>
-          {stateCharacters.characters.map((item) =>
+          {stateFavourites.favourites.map((item) =>
             item?.comments?.map((item, index) => {
               return <p key={index}>{item}</p>;
             })
