@@ -2,15 +2,15 @@ import { uiActions } from '../actions/ui.actions';
 import { UiActions } from '../actions.creators/ui.action.creators';
 
 export type UiState = {
-  mode: string;
+  mode: boolean;
 };
 
 export const uiReducer = (state: UiState, action: UiActions): UiState => {
   switch (action.type) {
-    case uiActions.darkMode:
+    case uiActions.visiblityMode:
       return {
         ...state,
-        mode: action.payload as string,
+        mode: action.payload.mode,
       };
     default:
       return state;

@@ -18,5 +18,5 @@ export const initialStateFavourites: favouriteState = {
 };
 
 export const initialStateUi = {
-  mode: 'light',
+  mode: true,
 };

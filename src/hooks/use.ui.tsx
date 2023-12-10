@@ -8,10 +8,10 @@ export const useUi = () => {
 
   const toggleTheme = () => {
     if (stateUi.mode) {
-      dispatch(ac.toggleMode(false));
+      dispatch(ac.toggleMode({ mode: false }));
       return;
     }
-    dispatch(ac.toggleMode(true));
+    dispatch(ac.toggleMode({ mode: true }));
   };
 
   return {

@@ -44,5 +44,5 @@ export type Character = {
   affiliation: Affiliation;
   originPlanet: Planet;
   transformations: Transformations[];
-  comments?: string[];
+  comments: string[] | [];
 };

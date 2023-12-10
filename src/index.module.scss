@@ -3,6 +3,8 @@ body {
 }
 
 .button {
+  display: flex;
+  align-items: center;
   background-color: #f8d825;
   border-radius: 8px;
   border-style: none;

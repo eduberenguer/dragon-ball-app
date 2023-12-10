@@ -1,3 +1,3 @@
 export const uiActions = {
-  darkMode: 'ui@darkMode',
+  visiblityMode: 'ui@visiblityMode',
 };
