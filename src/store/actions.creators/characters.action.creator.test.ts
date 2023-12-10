@@ -1,29 +1,11 @@
 import { charactersActions } from '../actions/characters.actions';
-import { loadCharacters } from './characters.action.creator';
-import { Character } from '../../models/character.types';
-
-const mockCharacters: Character[] = [
-  {
-    id: '1',
-    name: 'Goku',
-    ki: '1000',
-    maxKi: '60 mill',
-    race: 'Saiyan',
-    gender: 'Male',
-    description: 'Description test',
-    image:
-      'https://res.cloudinary.com/dgtgbyo76/image/upload/v1699044374/hlpy6q013uw3itl5jzic.webp',
-    affiliation: 'Z Fighter',
-    originPlanet: {
-      id: '1',
-      name: 'Namek',
-      isDestroyed: true,
-      description: 'Test',
-      image: 'tes image',
-    },
-    transformations: [],
-  },
-];
+import {
+  loadCharacters,
+  loadCharacterById,
+  loadCharactersByOptions,
+  changeTransformationPhoto,
+} from './characters.action.creator';
+import { mockCharacters } from '../../mocks/character.mock';
 
 describe('Given the characters actions creator', () => {
   describe('When called the function load', () => {
@@ -35,6 +17,33 @@ describe('Given the characters actions creator', () => {
       };
 
       expect(element).toEqual(result);
-    });
+    }),
+      test('Then it should return an object with the proper type and payload', () => {
+        const element = loadCharacterById(mockCharacters[0]);
+        const result = {
+          type: charactersActions.loadById,
+          payload: mockCharacters,
+        };
+
+        expect([element.payload]).toEqual(result.payload);
+      }),
+      test('Then it should return an object with the proper type and payload', () => {
+        const element = loadCharactersByOptions(mockCharacters[0]);
+        const result = {
+          type: charactersActions.loadCharactersByOptions,
+          payload: mockCharacters,
+        };
+
+        expect([element.payload]).toEqual(result.payload);
+      }),
+      test('Then it should return an object with the proper type and payload', () => {
+        const element = changeTransformationPhoto(mockCharacters[0]);
+        const result = {
+          type: charactersActions.changeTransformationPhoto,
+          payload: mockCharacters,
+        };
+
+        expect([element.payload]).toEqual(result.payload);
+      });
   });
 });

@@ -26,7 +26,7 @@ export const Header = () => {
               <img src="../hairBlond.png" alt="blond" />
             </Link>
           </button>
-          <p onClick={toggleMode}>{stateUi.mode ? '⚫️' : '⚪️'}</p>
+          <p onClick={toggleMode}>{stateUi?.mode ? '⚫️' : '⚪️'}</p>
         </div>
       </header>
     </>

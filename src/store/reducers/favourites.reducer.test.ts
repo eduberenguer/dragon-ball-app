@@ -19,42 +19,50 @@ describe('favourits reducer', () => {
       const state = favouritesReducer(initialState, action);
 
       expect(state.favourites).toEqual(favourites);
-    });
+    }),
+      test('should return the state in add favourite', () => {
+        const favourite: Character = characterMock;
+        const action = {
+          type: favouritesActions.addFoFavourite,
+          payload: favourite,
+        };
 
-    test('should return the state in add favourite', () => {
-      const favourite: Character = characterMock;
-      const action = {
-        type: favouritesActions.addFoFavourite,
-        payload: favourite,
-      };
+        const state = favouritesReducer(initialState, action);
 
-      const state = favouritesReducer(initialState, action);
+        expect(state.favourites[0]).toEqual(favourite);
+      }),
+      test('should return the state in remove favourite', () => {
+        const favourite: Character[] = [];
+        const action = {
+          type: favouritesActions.removeFavourite,
+          payload: favourite,
+        };
 
-      expect(state.favourites[0]).toEqual(favourite);
-    });
+        const state = favouritesReducer(initialState, action);
 
-    test('should return the state in remove favourite', () => {
-      const favourite: Character[] = [];
-      const action = {
-        type: favouritesActions.removeFavourite,
-        payload: favourite,
-      };
+        expect(state.favourites).toEqual(favourite);
+      }),
+      test('should return the state in add comment', () => {
+        const favourite: Character[] = [];
+        const action = {
+          type: favouritesActions.addComment,
+          payload: favourite,
+        };
 
-      const state = favouritesReducer(initialState, action);
+        const state = favouritesReducer(initialState, action);
 
-      expect(state.favourites).toEqual(favourite);
-    });
+        expect(state.favourites).toEqual(favourite);
+      }),
+      test('should return the default state ', () => {
+        const favourites: Character[] = [];
+        const action = {
+          type: '',
+          payload: favourites,
+        };
 
-    test('should return the default state ', () => {
-      const favourites: Character[] = [];
-      const action = {
-        type: '',
-        payload: favourites,
-      };
+        const state = favouritesReducer(initialState, action);
 
-      const state = favouritesReducer(initialState, action);
-
-      expect(state.favourites).toEqual(favourites);
-    });
+        expect(state.favourites).toEqual(favourites);
+      });
   });
 });
