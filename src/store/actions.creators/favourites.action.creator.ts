@@ -3,7 +3,12 @@ import { Character } from '../../models/character.types';
 
 export interface FavouriteActions {
   type: string;
-  payload?: Character | Character[];
+  payload?: Character | Character[] | string;
+}
+
+export interface CommentActions {
+  type: string;
+  payload: { id: string; comment: string };
 }
 
 export const loadFavourites = (payload: Character[]): FavouriteActions => {
@@ -27,6 +32,13 @@ export const removeFavourite = (
 ): FavouriteActions => {
   return {
     type: favouritesActions.removeFavourite,
+    payload,
+  };
+};
+
+export const addComment = (payload: { id: string; comment: string }) => {
+  return {
+    type: favouritesActions.addComment,
     payload,
   };
 };

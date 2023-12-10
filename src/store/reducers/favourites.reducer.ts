@@ -1,6 +1,9 @@
 import { Character } from '../../models/character.types';
 import { favouritesActions } from '../actions/favourites.actions';
-import { FavouriteActions } from '../actions.creators/favourites.action.creator';
+import {
+  FavouriteActions,
+  CommentActions,
+} from '../actions.creators/favourites.action.creator';
 
 export type favouriteState = {
   favourites: Character[];
@@ -8,7 +11,7 @@ export type favouriteState = {
 
 export const favouritesReducer = (
   state: favouriteState,
-  action: FavouriteActions
+  action: FavouriteActions | CommentActions
 ): favouriteState => {
   switch (action.type) {
     case favouritesActions.loadFavourites:
@@ -27,6 +30,25 @@ export const favouritesReducer = (
         favourites: state.favourites.filter(
           (character) => character.id !== (action.payload as Character)?.id
         ),
+      };
+    case favouritesActions.addComment:
+      const addCommentAction = action as {
+        payload: { id: string; comment: string };
+      };
+      return {
+        ...state,
+        favourites: state.favourites.map((character) => {
+          if (String(character.id) === addCommentAction?.payload?.id) {
+            return {
+              ...character,
+              comments: [
+                ...(character.comments || []),
+                addCommentAction?.payload?.comment,
+              ],
+            };
+          }
+          return character;
+        }),
       };
     default:
       return state;

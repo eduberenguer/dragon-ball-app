@@ -25,9 +25,14 @@ export const useFavourites = () => {
     dispatch(ac.addFavourite(character));
   };
 
+  const addComment = (character: Character | undefined, comment: string) => {
+    dispatch(ac.addComment({ id: String(character?.id), comment }));
+  };
+
   return {
     stateFavourites,
     loadFavourites,
     toggleFavourite,
+    addComment,
   };
 };

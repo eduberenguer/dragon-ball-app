@@ -23,7 +23,7 @@ export const Header = () => {
         <div className={style.container_button}>
           <button className={genericStyle.button}>
             <Link to="/favourites">
-              <img src="./hairBlond.png" alt="blond" />
+              <img src="../hairBlond.png" alt="blond" />
             </Link>
           </button>
           <span onClick={toggleMode}>{stateUi.mode ? '⚫️' : '⚪️'}</span>
