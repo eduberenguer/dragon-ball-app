@@ -31,11 +31,27 @@ export const createCharactersRepository = (): Repository<ApiResponseData> => {
         character: response,
       };
     },
-    getCharactersByOptions: async (option, value) => {
-      const optionBuild = `?${option}=${value}`;
-      const urlFinal = `${apiUrl}${optionBuild}`;
+    getCharactersByOptions: async (filters) => {
+      const { race, affiliation } = filters;
+
+      const hasDefaultRace = race === 'default';
+      const hasDefaultAffiliation = affiliation === 'default';
+
+      let urlFinal;
+
+      if (hasDefaultRace || hasDefaultAffiliation) {
+        const optionBuild = hasDefaultRace
+          ? `?affiliation=${affiliation}`
+          : `?race=${race}`;
+
+        urlFinal = `${apiUrl}${optionBuild}`;
+      } else {
+        urlFinal = `${apiUrl}?race=${race}&affiliation=${affiliation}`;
+      }
+
       const data = await fetch(urlFinal);
       const response = await data.json();
+
       return {
         ...response,
         items: response,

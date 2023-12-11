@@ -9,13 +9,16 @@ export const Favourite = () => {
 
   return (
     <div className={style.container}>
-      {stateFavourites.favourites.length ? (
-        stateFavourites?.favourites?.map((character) => {
-          return <Card {...character} key={character.id} />;
-        })
-      ) : (
-        <p>No tienes personajes favoritos</p>
-      )}
+      <h2>Favoritos</h2>
+      <div className={style.container_cards}>
+        {stateFavourites.favourites.length ? (
+          stateFavourites?.favourites?.map((character) => {
+            return <Card {...character} key={character.id} />;
+          })
+        ) : (
+          <p>No tienes personajes favoritos</p>
+        )}
+      </div>
     </div>
   );
 };

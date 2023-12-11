@@ -5,7 +5,7 @@ import { Character } from '../../models/character.types';
 import style from './comments.module.scss';
 import genericStyle from '../../index.module.scss';
 
-export const Comments = ({ character }: any) => {
+export const Comments = (character: Character | undefined) => {
   const [commentValue, setCommentValue] = useState<string>('');
   const { stateFavourites } = useContext(FavouritesContext);
   const { addComment } = useContext(FavouritesContext);
@@ -22,7 +22,7 @@ export const Comments = ({ character }: any) => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <p>Añade comentarios: </p>
       <form
         onSubmit={(event) => handleComment(character, event)}
@@ -40,7 +40,7 @@ export const Comments = ({ character }: any) => {
       </form>
       <div>
         {stateFavourites?.favourites?.map((item) => {
-          if (item.id === character.id) {
+          if (item.id === character?.id) {
             return item?.comments?.map((comment, index) => {
               return (
                 <div key={index} className={style.comment}>

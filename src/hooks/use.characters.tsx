@@ -38,11 +38,14 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     }
   };
 
-  const getCharactersByOptions = async (option: string, value: string) => {
-    if (value === 'default') {
+  const getCharactersByOptions = async (filters: {
+    race: string;
+    affiliation: string;
+  }) => {
+    if (filters.affiliation === 'default' && filters.race === 'default') {
       getCharacters();
     } else {
-      const response = await repo.getCharactersByOptions(option, value);
+      const response = await repo.getCharactersByOptions(filters);
       setPagination({
         nextPage: '',
         previousPage: '',

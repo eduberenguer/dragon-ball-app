@@ -1,7 +1,7 @@
 import { favouriteState, favouritesReducer } from './favourites.reducer';
 import { Character } from '../../models/character.types';
 import { favouritesActions } from '../actions/favourites.actions';
-import { characterMock } from '../../mocks/character.mock';
+import { mockCharacter } from '../../mocks/character.mock';
 
 const initialState: favouriteState = {
   favourites: [],
@@ -21,7 +21,7 @@ describe('favourits reducer', () => {
       expect(state.favourites).toEqual(favourites);
     }),
       test('should return the state in add favourite', () => {
-        const favourite: Character = characterMock;
+        const favourite: Character = mockCharacter;
         const action = {
           type: favouritesActions.addFoFavourite,
           payload: favourite,

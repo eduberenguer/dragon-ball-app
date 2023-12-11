@@ -26,9 +26,9 @@ export const mockCharacters: Character[] = [
   },
 ];
 
-export const characterMock = {
+export const mockCharacter = {
   id: '10',
-  name: 'test',
+  name: 'Goku',
   ki: '20',
   maxKi: '3000',
   race: 'Human' as Race,

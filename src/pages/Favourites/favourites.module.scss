@@ -1,7 +1,14 @@
 .container {
-  padding: 40px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  align-items: center;
+  padding: 40px;
+
+  .container_cards {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
 }

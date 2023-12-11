@@ -1,12 +1,17 @@
-.form {
-  margin-top: 10px;
-  margin-bottom: 10px;
-
-  .input {
+.container {
+  .form {
+    display: flex;
+    align-items: end;
+    gap: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
-  }
-}
 
-.comment {
-  margin-top: 10px;
+    .input {
+      margin-bottom: 10px;
+    }
+  }
+
+  .comment {
+    margin-top: 10px;
+  }
 }

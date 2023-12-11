@@ -58,9 +58,9 @@ export const Details = () => {
           <span onClick={() => handleFavourite(stateCharacters.character)}>
             {stateCharacters?.character?.id &&
             isFavourite(stateCharacters?.character?.id) ? (
-              <img src="../hairBlond.png" alt="blond" width="80px" />
+              <img src="../kamehouse.png" alt="kamehouse" width="80px" />
             ) : (
-              <img src="../hairBlack.png" alt="black" width="80px" />
+              <img src="../tournament.png" alt="tournament" width="80px" />
             )}
           </span>
         </div>
@@ -72,8 +72,10 @@ export const Details = () => {
           stateCharacter={stateCharacters.character}
           setChangeTransformationImage={changesPhoto}
         />
-        {isFavourite(stateCharacters?.character?.id ?? '') && (
-          <Comments character={stateCharacters.character} />
+        {isFavourite(stateCharacters?.character?.id ?? '') ? (
+          <Comments {...(stateCharacters.character as Character)} />
+        ) : (
+          <div></div>
         )}
       </div>
     </section>

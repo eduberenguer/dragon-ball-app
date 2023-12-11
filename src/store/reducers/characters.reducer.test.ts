@@ -14,9 +14,9 @@ const initialState: characterState = {
   },
 };
 
-describe('characters reducer', () => {
-  describe('when the action is recognized', () => {
-    test('should return the state', () => {
+describe('Given a characters reducer', () => {
+  describe("When it's rendered", () => {
+    test('should return the state with load action', () => {
       const characters: Character[] = [];
       const action = {
         type: charactersActions.load,
@@ -27,10 +27,32 @@ describe('characters reducer', () => {
       expect(state.characters).toEqual(characters);
     });
 
-    test('should return the state', () => {
+    test('should return the state with loadById action', () => {
       const characters: Character[] = [];
       const action = {
         type: charactersActions.loadById,
+        payload: characters,
+      };
+      const state = charactersReducer(initialState, action);
+
+      expect(state.characters).toEqual(characters);
+    });
+
+    test('should return the state with loadCharactersByOptions action', () => {
+      const characters: Character[] = [];
+      const action = {
+        type: charactersActions.loadCharactersByOptions,
+        payload: characters,
+      };
+      const state = charactersReducer(initialState, action);
+
+      expect(state.characters).toEqual(characters);
+    });
+
+    test('should return the state with changeTransformationPhoto action', () => {
+      const characters: Character[] = [];
+      const action = {
+        type: charactersActions.changeTransformationPhoto,
         payload: characters,
       };
       const state = charactersReducer(initialState, action);

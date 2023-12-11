@@ -22,10 +22,19 @@
   }
 
   img {
-    width: 50px;
+    width: 65px;
+  }
+
+  .logo {
+    width: 150px
   }
 
   p {
     cursor: pointer;
+    display: flex;
+
+    .icon {
+      font-size: 30px;
+    }
   }
 }
