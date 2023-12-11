@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CharactersContext, FavouritesContext } from '../context/context';
-import { Transformation } from '../components/transformation/transformation';
-import { Comments } from '../components/comments/comments';
+import { CharactersContext, FavouritesContext } from '../../context/context';
+import { Transformation } from '../../components/transformation/transformation';
+import { Comments } from '../../components/comments/comments';
 
 import style from './details.module.scss';
-import { Character } from '../models/character.types';
+import { Character } from '../../models/character.types';
 
 export const Details = () => {
   const { id } = useParams();

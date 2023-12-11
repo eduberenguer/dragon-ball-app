@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { FavouritesContext } from '../context/context';
-import { Card } from '../components/card/card';
+import { FavouritesContext } from '../../context/context';
+import { Card } from '../../components/card/card';
 
 import style from './favourites.module.scss';
 

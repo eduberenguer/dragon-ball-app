@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react';
-import { CharactersContext, UiContext } from '../context/context';
-import { Character } from '../models/character.types';
-import { Card } from '../components/card/card';
-import { Pagination } from '../components/pagination/pagination';
+import { CharactersContext, UiContext } from '../../context/context';
+import { Character } from '../../models/character.types';
+import { Card } from '../../components/card/card';
+import { Pagination } from '../../components/pagination/pagination';
 
 import style from './home.module.scss';
-import { Filter } from '../components/filter/filter';
+import { Filter } from '../../components/filter/filter';
 
 export const Home = () => {
   const { stateCharacters, getCharacters, pagination, changePage } =

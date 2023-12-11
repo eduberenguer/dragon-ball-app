@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './testApp/app.tsx';
+import App from './app/app.tsx';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ContextProvider } from './context/context.tsx';
 

@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Home } from '../testPages/home';
-import { Favourite } from '../testPages/favourites';
-import { Header } from '../components/test/header';
-import { Details } from '../testPages/details';
+import { Home } from '../pages/home/home';
+import { Favourite } from '../pages/favourites/favourites';
+import { Header } from '../components/header/header';
+import { Details } from '../pages/details/details';
 
 function App() {
   return (
