@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { Header } from './header';
+import { Header } from '../test/header';
 import { render, screen } from '@testing-library/react';
 
 describe('Header component', () => {

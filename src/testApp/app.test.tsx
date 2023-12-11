@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import App from './app';
+import App from './testApp/app';
 
 jest.mock('../config', () => ({
   url: '',
