@@ -1,4 +1,4 @@
-import { Race } from '../models/character.types';
+import { Race } from '../../../models/character.types';
 
 export const optionsRace: Race[] = [
   'Human',

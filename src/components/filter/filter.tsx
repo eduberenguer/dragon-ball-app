@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import { optionsRace } from '../../mocks/race.options';
-import { optionsAffiliation } from '../../mocks/affiliation.options';
+import { optionsRace } from './options.filters/race.options';
+import { optionsAffiliation } from './options.filters/affiliation.options';
 import { CharactersContext } from '../../context/context';
 import { PaginationType } from '../../models/pagination.type';
 

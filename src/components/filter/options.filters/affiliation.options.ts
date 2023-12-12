@@ -1,4 +1,4 @@
-import { Affiliation } from '../models/character.types';
+import { Affiliation } from '../../../models/character.types';
 
 export const optionsAffiliation: Affiliation[] = [
   'Z Fighter',
