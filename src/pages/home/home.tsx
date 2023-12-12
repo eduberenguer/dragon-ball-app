@@ -5,7 +5,7 @@ import { Card } from '../../components/card/card';
 import { Pagination } from '../../components/pagination/pagination';
 
 import style from './home.module.scss';
-import { Filter } from '../../components/filter/filter';
+import { FilterByOptions } from '../../components/filters/filter.by.options';
 
 export const Home = () => {
   const { stateCharacters, getCharacters, pagination, changePage } =
@@ -23,7 +23,7 @@ export const Home = () => {
 
   return (
     <>
-      <Filter pagination={pagination} />
+      <FilterByOptions pagination={pagination} />
       <div className={stateUi?.mode ? style.container : style.mode_dark}>
         {stateCharacters.characters.length ? (
           stateCharacters.characters.map((character: Character) => (

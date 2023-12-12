@@ -17,7 +17,7 @@ describe('Given a App component', () => {
       </Router>
     );
 
-    const nameText = screen.getByText(/Dragon Ball/i);
-    expect(nameText).toBeInTheDocument();
+    const element = screen.getByRole('banner');
+    expect(element).toBeInTheDocument();
   });
 });

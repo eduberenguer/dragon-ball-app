@@ -28,13 +28,13 @@ export const Header = () => {
           {location.pathname !== '/favourites' ? (
             <Link to="/favourites">
               <button className={genericStyle.button}>
-                <img src="../kamehouse.png" alt="blond" />
+                <img src="../kamehouse.png" alt="kamehouse" />
               </button>
             </Link>
           ) : (
             <Link to="/">
               <button className={genericStyle.button}>
-                <img src="../tournament.png" alt="home" />
+                <img src="../tournament.png" alt="tournament" />
               </button>
             </Link>
           )}

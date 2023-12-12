@@ -4,10 +4,14 @@ import { optionsAffiliation } from './options.filters/affiliation.options';
 import { CharactersContext } from '../../context/context';
 import { PaginationType } from '../../models/pagination.type';
 
-import style from './filter.module.scss';
+import style from './filter.by.options.module.scss';
 import genericSyles from '../../index.module.scss';
 
-export const Filter = ({ pagination }: { pagination: PaginationType }) => {
+export const FilterByOptions = ({
+  pagination,
+}: {
+  pagination: PaginationType;
+}) => {
   const [selected, setSelected] = useState({
     race: 'default',
     affiliation: 'default',

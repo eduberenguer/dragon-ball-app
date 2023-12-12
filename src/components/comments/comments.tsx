@@ -34,7 +34,7 @@ export const Comments = (character: Character | undefined) => {
           name="comment"
           value={commentValue}
           onChange={(event) => setCommentValue(event.target.value)}
-          className={style.input}
+          className={genericStyle.input}
         />
         <button className={genericStyle.button}>Enviar</button>
       </form>
