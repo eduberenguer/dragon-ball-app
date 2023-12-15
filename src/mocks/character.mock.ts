@@ -37,6 +37,8 @@ export const mockCharacter = {
   image: 'image.png',
   affiliation: 'Z Fighter' as Affiliation,
   originPlanet: PlanetMock,
-  transformations: [],
-  comments: [],
+  transformations: [
+    { id: '1', name: 'Super Saiyan', image: 'ssj.png', ki: 1000 },
+  ],
+  comments: ['Comment 1', 'Comment 2'],
 };

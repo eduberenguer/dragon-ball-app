@@ -5,9 +5,9 @@ import { useFavourites } from '../hooks/use.favourites';
 import { useUi } from '../hooks/use.ui';
 import { createCharactersRepository } from '../services/characters.repo';
 
-type UseCharacterStructured = ReturnType<typeof useCharacters>;
-type UseFavouritesStructured = ReturnType<typeof useFavourites>;
-type UseUiStructured = ReturnType<typeof useUi>;
+export type UseCharacterStructured = ReturnType<typeof useCharacters>;
+export type UseFavouritesStructured = ReturnType<typeof useFavourites>;
+export type UseUiStructured = ReturnType<typeof useUi>;
 
 export const CharactersContext = createContext({} as UseCharacterStructured);
 export const FavouritesContext = createContext({} as UseFavouritesStructured);

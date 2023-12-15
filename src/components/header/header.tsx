@@ -38,13 +38,13 @@ export const Header = () => {
               </button>
             </Link>
           )}
-          <p onClick={toggleMode}>
+          <button onClick={toggleMode} role="buttonStateMode">
             {stateUi?.mode ? (
               <IoInvertMode className={style.icon} />
             ) : (
               <IoInvertModeOutline className={style.icon} />
             )}
-          </p>
+          </button>
         </div>
       </header>
     </>

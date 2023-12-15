@@ -8,8 +8,8 @@ import { Character } from '../models/character.types';
 
 export function useCharacters(repo: Repository<ApiResponseData>) {
   const [pagination, setPagination] = useState({
-    nextPage: '',
-    previousPage: '',
+    nextPage: 0,
+    previousPage: 0,
     currentPage: 1,
     totalPages: 0,
   });
@@ -22,8 +22,8 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
   const getCharacters = async () => {
     const response = await repo.getAll(pagination.currentPage);
     setPagination({
-      nextPage: response.links.next,
-      previousPage: response.links.previous,
+      nextPage: Number(response.links.next),
+      previousPage: Number(response.links.previous),
       currentPage: pagination.currentPage,
       totalPages: response.meta.totalPages,
     });
@@ -47,8 +47,8 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     } else {
       const response = await repo.getCharactersByOptions(filters);
       setPagination({
-        nextPage: '',
-        previousPage: '',
+        nextPage: 0,
+        previousPage: 0,
         currentPage: 1,
         totalPages: 1,
       });

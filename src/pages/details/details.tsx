@@ -55,7 +55,10 @@ export const Details = () => {
       <div className={style.info}>
         <div className={style.favourite}>
           <p>{stateCharacters?.character?.name}</p>
-          <span onClick={() => handleFavourite(stateCharacters.character)}>
+          <span
+            onClick={() => handleFavourite(stateCharacters.character)}
+            role="span"
+          >
             {stateCharacters?.character?.id &&
             isFavourite(stateCharacters?.character?.id) ? (
               <img src="../kamehouse.png" alt="kamehouse" width="80px" />

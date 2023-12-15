@@ -46,7 +46,7 @@ export const FilterByOptions = ({
     <>
       {pagination.currentPage === 1 && (
         <div className={style.select}>
-          <form>
+          <form aria-label="form">
             <span>Filtrar por raza: </span>
             <select value={selected.race} onChange={handleOption} name="race">
               <option value="default"> Todos </option>

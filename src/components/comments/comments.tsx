@@ -25,10 +25,12 @@ export const Comments = (character: Character | undefined) => {
     <div className={style.container}>
       <p>Añade comentarios: </p>
       <form
+        aria-label="form"
         onSubmit={(event) => handleComment(character, event)}
         className={style.form}
       >
         <input
+          aria-label="input"
           type="text"
           placeholder="Añade un comentario"
           name="comment"
