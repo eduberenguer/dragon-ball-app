@@ -76,5 +76,6 @@ export function useCharacters(repo: Repository<ApiResponseData>) {
     getCharacterById,
     getCharactersByOptions,
     changeTransformationPhoto,
+    repo,
   };
 }

@@ -27,7 +27,7 @@ export const mockCharacters: Character[] = [
 ];
 
 export const mockCharacter = {
-  id: '10',
+  id: '1',
   name: 'Goku',
   ki: '20',
   maxKi: '3000',

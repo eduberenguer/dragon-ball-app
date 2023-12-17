@@ -3,29 +3,13 @@ import { MemoryRouter as Router } from 'react-router-dom';
 import { Header } from './header';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  CharactersContext,
-  UiContext,
-  UseCharacterStructured,
-  UseUiStructured,
-} from '../../context/context';
-import { initialStateCharacters } from '../../mocks/initial.state.reducer';
+import { CharactersContext, UiContext } from '../../context/context';
+import { mockCharactersContext } from '../../mocks/characters.context.mock';
+import { mockUiContext } from '../../mocks/ui.context.mock';
 
 jest.mock('../../config', () => ({
   url: '',
 }));
-
-const mockCharactersContext: UseCharacterStructured = {
-  stateCharacters: initialStateCharacters,
-  getCharacters: jest.fn(),
-} as unknown as UseCharacterStructured;
-
-const mockUiContext: UseUiStructured = {
-  stateUi: {
-    mode: false,
-  },
-  toggleTheme: jest.fn(),
-} as unknown as UseUiStructured;
 
 beforeEach(() => {
   render(
@@ -62,6 +46,6 @@ describe('Header component', () => {
     await userEvent.click(button[0]);
     const mode = mockUiContext.stateUi?.mode;
 
-    expect(mode).toBeFalsy();
+    expect(mode).toBeTruthy();
   });
 });

@@ -1,8 +1,9 @@
 import { UseFavouritesStructured } from '../context/context';
+import { mockCharacter } from './character.mock';
 
 export const mockFavouritesContext: UseFavouritesStructured = {
   stateFavourites: {
-    favourites: [],
+    favourites: [mockCharacter],
   },
   loadFavourites: jest.fn(),
   toggleFavourite: jest.fn(),

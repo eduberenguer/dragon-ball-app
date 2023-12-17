@@ -17,6 +17,7 @@ export type ApiResponseData = {
 export const createCharactersRepository = (): Repository<ApiResponseData> => {
   return {
     getAll: async (currentPage) => {
+      console.log(currentPage);
       const urlFinal = `${apiUrl}?page=${currentPage}`;
       const data = await fetch(urlFinal);
       const response: ApiResponseData = await data.json();

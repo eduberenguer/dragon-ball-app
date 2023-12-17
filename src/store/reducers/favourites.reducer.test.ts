@@ -2,6 +2,7 @@ import { favouriteState, favouritesReducer } from './favourites.reducer';
 import { Character } from '../../models/character.types';
 import { favouritesActions } from '../actions/favourites.actions';
 import { mockCharacter } from '../../mocks/character.mock';
+import { initialStateFavourites } from '../../mocks/initial.state.reducer';
 
 const initialState: favouriteState = {
   favourites: [],
@@ -32,7 +33,8 @@ describe('favourits reducer', () => {
         expect(state.favourites[0]).toEqual(favourite);
       }),
       test('should return the state in remove favourite', () => {
-        const favourite: Character[] = [];
+        const favourite: Character[] = [mockCharacter];
+        const result: Character[] = [];
         const action = {
           type: favouritesActions.removeFavourite,
           payload: favourite,
@@ -40,16 +42,17 @@ describe('favourits reducer', () => {
 
         const state = favouritesReducer(initialState, action);
 
-        expect(state.favourites).toEqual(favourite);
+        expect(state.favourites).toEqual(result);
       }),
       test('should return the state in add comment', () => {
-        const favourite: Character[] = [];
+        const favourite: Character[] = [mockCharacter];
+        initialStateFavourites.favourites.push(mockCharacter);
         const action = {
           type: favouritesActions.addComment,
           payload: favourite,
         };
 
-        const state = favouritesReducer(initialState, action);
+        const state = favouritesReducer(initialStateFavourites, action);
 
         expect(state.favourites).toEqual(favourite);
       }),
