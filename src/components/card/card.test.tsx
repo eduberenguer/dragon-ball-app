@@ -8,7 +8,7 @@ jest.mock('../../config', () => ({
   url: '',
 }));
 
-describe('Card', () => {
+describe('Given a Card component', () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
@@ -16,7 +16,7 @@ describe('Card', () => {
       </BrowserRouter>
     );
   });
-  test("Then it should show the word 'Goku'", () => {
+  test("then it should show the word 'Goku'", () => {
     const name = 'Goku';
 
     const label = screen.getByText(name);

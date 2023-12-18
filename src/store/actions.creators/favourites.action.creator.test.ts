@@ -11,7 +11,7 @@ const mockFavourites: Character[] = [];
 
 describe('Given the favourites actions creator', () => {
   describe('When called the function loadFavourites', () => {
-    test('Then it should return an object with the proper type and payload', () => {
+    test('then it should return an object with the proper type and payload (loadFavourites)', () => {
       const element = loadFavourites(mockFavourites);
       const result = {
         type: favouritesActions.loadFavourites,
@@ -20,7 +20,7 @@ describe('Given the favourites actions creator', () => {
 
       expect(element).toEqual(result);
     }),
-      test('Then it should return an object with the proper type and payload', () => {
+      test('then it should return an object with the proper type and payload (addFavourite)', () => {
         const element = addFavourite(mockFavourites[0]);
         const result = {
           type: favouritesActions.addFoFavourite,
@@ -29,7 +29,7 @@ describe('Given the favourites actions creator', () => {
 
         expect([element.payload]).toEqual(result.payload);
       }),
-      test('Then it should return an object with the proper type and payload', () => {
+      test('then it should return an object with the proper type and payload (removeFavourite)', () => {
         const element = removeFavourite(mockFavourites[0]);
         const result = {
           type: favouritesActions.removeFavourite,
@@ -38,7 +38,7 @@ describe('Given the favourites actions creator', () => {
 
         expect([element.payload]).toEqual(result.payload);
       }),
-      test('Then it should return an object with the proper type and payload', () => {
+      test('then it should return an object with the proper type and payload (addComment)', () => {
         const element = addComment({ id: '1', comment: 'test' });
         const result = {
           type: favouritesActions.addComment,

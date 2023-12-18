@@ -25,13 +25,13 @@ beforeEach(() => {
   );
 });
 
-describe('Details component', () => {
+describe('Given a details component', () => {
   test('should render the component', () => {
     const element = screen.getByText('Goku');
     expect(element).toBeInTheDocument();
   });
 
-  test('should render the component without character', async () => {
+  test('verified to have been called toggle favourite function', async () => {
     const span = screen.getByRole('span');
     await userEvent.click(span);
 

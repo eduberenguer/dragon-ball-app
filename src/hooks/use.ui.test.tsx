@@ -3,18 +3,15 @@ import { useUi } from './use.ui';
 import { UiContext } from '../context/context';
 import { renderHook, act } from '@testing-library/react';
 import { mockUiContext } from '../mocks/ui.context.mock';
+import { Props } from '../context/provider.types';
 
 jest.mock('../config', () => ({
   url: '',
 }));
 
-interface WrapperProps {
-  children: JSX.Element;
-}
-
 describe('Render useUi custom hook and testcomponent', () => {
-  test('', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+  test('should render component with toggleTheme (true => false)', async () => {
+    const Wrapper = ({ children }: Props) => (
       <UiContext.Provider value={mockUiContext}>{children}</UiContext.Provider>
     );
     const { result } = renderHook(useUi, { wrapper: Wrapper });
@@ -23,8 +20,8 @@ describe('Render useUi custom hook and testcomponent', () => {
     expect(result.current.stateUi.mode).toBeFalsy();
   });
 
-  test('', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+  test('should render component with toggleTheme (false => true)', async () => {
+    const Wrapper = ({ children }: Props) => (
       <UiContext.Provider value={mockUiContext}>{children}</UiContext.Provider>
     );
     const { result } = renderHook(useUi, { wrapper: Wrapper });

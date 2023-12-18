@@ -10,7 +10,7 @@ jest.mock('../config', () => ({
 jest.mock('../pages/Home/Home', () => () => <div>Home page</div>);
 
 describe('Given a App component', () => {
-  test("When it's rendered", async () => {
+  test("when it's rendered", async () => {
     render(
       <Router initialEntries={['/']}>
         <App />

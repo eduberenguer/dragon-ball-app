@@ -22,8 +22,6 @@ export default function Home() {
     changePage(direction);
   };
 
-  console.log('HOME');
-
   return (
     <>
       {isLoading ? (

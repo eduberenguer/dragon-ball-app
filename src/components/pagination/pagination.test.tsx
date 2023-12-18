@@ -2,27 +2,19 @@ import '@testing-library/jest-dom';
 import { Pagination } from './pagination';
 import { render } from '@testing-library/react';
 import { screen, fireEvent } from '@testing-library/dom';
+import { mockPagination } from '../../mocks/pagination.mock';
 
 jest.mock('../../config', () => ({
   url: '',
 }));
 
 describe('Pagination', () => {
-  const currentPage = 1;
-  const nextPage = '2';
-  const totalPages = 6;
-  const previousPage = '';
   const handleChangePage = jest.fn();
 
   beforeEach(() => {
     render(
       <Pagination
-        pagination={{
-          currentPage,
-          nextPage,
-          previousPage,
-          totalPages,
-        }}
+        pagination={mockPagination}
         handleChangePage={handleChangePage}
       />
     );
@@ -30,16 +22,19 @@ describe('Pagination', () => {
 
   test('should render the pagination component', () => {
     const pagination = screen.getByText('1 of 6');
+
     expect(pagination).toBeInTheDocument();
   });
 
   test('should render the previous button disabled', () => {
     const previousButton = screen.getByText('＜');
+
     expect(previousButton).toHaveClass('button_disabled');
   });
 
   test('should render the next button enabled', () => {
     const nextButton = screen.getByText('＞');
+
     expect(nextButton).toHaveClass('button');
   });
 
@@ -55,8 +50,8 @@ describe("When it's rendered with current page = 2", () => {
     const currentPage = 2;
     const nextPage = '3';
     const previousPage = '1';
-    const handleChangePage = jest.fn();
     const totalPages = 6;
+    const handleChangePage = jest.fn();
 
     render(
       <Pagination
@@ -75,12 +70,12 @@ describe("When it's rendered with current page = 2", () => {
     expect(handleChangePage).toHaveBeenCalled();
   });
 
-  test('And next page button is clicked, setCurrentPage should be called', () => {
+  test('and next page button is clicked, setCurrentPage should be called', () => {
     const currentPage = 2;
     const nextPage = '3';
     const previousPage = '1';
-    const handleChangePage = jest.fn();
     const totalPages = 6;
+    const handleChangePage = jest.fn();
 
     render(
       <Pagination

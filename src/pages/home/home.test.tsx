@@ -11,7 +11,7 @@ jest.mock('../../config', () => ({
   url: '',
 }));
 
-describe('Home component', () => {
+describe('Given a home component', () => {
   beforeAll(() => {
     render(
       <Router>

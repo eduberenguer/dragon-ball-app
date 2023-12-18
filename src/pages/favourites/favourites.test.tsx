@@ -9,7 +9,7 @@ jest.mock('../../config', () => ({
   url: '',
 }));
 
-describe('Favourites', () => {
+describe('Given a favourites component', () => {
   beforeEach(() => {
     render(
       <Router>
@@ -20,7 +20,7 @@ describe('Favourites', () => {
     );
   });
 
-  test('renders the component', () => {
+  test('render the component', () => {
     const headingElement = screen.getByText('Favoritos');
     expect(headingElement).toBeInTheDocument();
   });

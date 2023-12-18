@@ -17,12 +17,14 @@ describe('Transformation component', () => {
 
   test('renders the transformation buttons', async () => {
     const button = screen.getByRole('button');
+
     expect(button).toBeInTheDocument();
   });
 
   test('calls setChangeTransformationImage when a button is clicked', async () => {
     const button = await screen.getAllByRole('button');
     fireEvent.click(button[0]);
+
     expect(setChangeTransformationImage).toHaveBeenCalledWith('ssj.png');
   });
 });

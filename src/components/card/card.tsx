@@ -1,9 +1,9 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UiContext } from '../../context/context';
 import { Character } from '../../models/character.types';
 
 import style from './Card.module.scss';
-import { UiContext } from '../../context/context';
-import { useContext } from 'react';
 
 export const Card = (character: Character) => {
   const { stateUi } = useContext(UiContext);

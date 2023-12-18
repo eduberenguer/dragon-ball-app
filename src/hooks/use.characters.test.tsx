@@ -4,18 +4,15 @@ import { CharactersContext } from '../context/context';
 import { mockCharactersContext } from '../mocks/characters.context.mock';
 import { renderHook, act } from '@testing-library/react';
 import { mockCharacter, mockCharacters } from '../mocks/character.mock';
+import { Props } from '../context/provider.types';
 
 jest.mock('../config', () => ({
   url: '',
 }));
 
-interface WrapperProps {
-  children: JSX.Element;
-}
-
 describe('Render useCharacters custom hook', () => {
   test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+    const Wrapper = ({ children }: Props) => (
       <CharactersContext.Provider value={mockCharactersContext}>
         {children}
       </CharactersContext.Provider>
@@ -42,8 +39,8 @@ describe('Render useCharacters custom hook', () => {
     expect(result.current.stateCharacters.characters[0]).toBe(undefined);
   });
 
-  test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+  test('give me the character by id', async () => {
+    const Wrapper = ({ children }: Props) => (
       <CharactersContext.Provider value={mockCharactersContext}>
         {children}
       </CharactersContext.Provider>
@@ -63,8 +60,8 @@ describe('Render useCharacters custom hook', () => {
     expect(result.current.stateCharacters.character?.name).toBe('Goku');
   });
 
-  test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+  test('give me the characters by options', async () => {
+    const Wrapper = ({ children }: Props) => (
       <CharactersContext.Provider value={mockCharactersContext}>
         {children}
       </CharactersContext.Provider>
@@ -93,8 +90,9 @@ describe('Render useCharacters custom hook', () => {
 
     expect(result.current.stateCharacters.characters.length).toBe(1);
   });
-  test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+
+  test("give me all characters when options are 'default'", async () => {
+    const Wrapper = ({ children }: Props) => (
       <CharactersContext.Provider value={mockCharactersContext}>
         {children}
       </CharactersContext.Provider>
@@ -119,8 +117,9 @@ describe('Render useCharacters custom hook', () => {
     );
     expect(mockCharactersContext.repo.getAll).toHaveBeenCalled();
   });
-  test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+
+  test('give me the new photo transformation', async () => {
+    const Wrapper = ({ children }: Props) => (
       <CharactersContext.Provider value={mockCharactersContext}>
         {children}
       </CharactersContext.Provider>
@@ -134,8 +133,8 @@ describe('Render useCharacters custom hook', () => {
     expect(result.current.stateCharacters.character?.image).toBe(undefined);
   });
 
-  test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+  test('verified and change page', async () => {
+    const Wrapper = ({ children }: Props) => (
       <CharactersContext.Provider value={mockCharactersContext}>
         {children}
       </CharactersContext.Provider>

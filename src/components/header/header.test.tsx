@@ -23,20 +23,20 @@ beforeEach(() => {
   );
 });
 
-describe('Header component', () => {
-  test('', async () => {
+describe('Given a Header component', () => {
+  test("then it should show a Link with text 'Dragon ball'", () => {
+    const isLogo = screen.getByRole('button');
+    expect(isLogo).toBeInTheDocument();
+  });
+
+  test('verified clicking on the logo calls the function to recover the characters', async () => {
     const img = screen.getAllByRole('img');
     await userEvent.click(img[0]);
 
     expect(mockCharactersContext.getCharacters).toHaveBeenCalled();
   });
 
-  test("Then it should show a Link with text 'Dragon ball'", () => {
-    const isLogo = screen.getByRole('button');
-    expect(isLogo).toBeInTheDocument();
-  });
-
-  test('', async () => {
+  test('verified logo when the location is /faovurites', async () => {
     render(
       <Router initialEntries={['/favourites']}>
         <Header />

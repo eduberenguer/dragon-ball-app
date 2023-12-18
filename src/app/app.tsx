@@ -1,13 +1,12 @@
-import { Route, Routes } from 'react-router-dom';
-
-import { Header } from '../components/header/header';
 import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Header } from '../components/header/header';
 
 const Home = lazy(() => import('../pages/home/home'));
 const Favourites = lazy(() => import('../pages/favourites/favourites'));
 const Details = lazy(() => import('../pages/details/details'));
 
-function App() {
+export default function App() {
   return (
     <>
       <Suspense>
@@ -21,5 +20,3 @@ function App() {
     </>
   );
 }
-
-export default App;

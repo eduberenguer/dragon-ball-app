@@ -9,7 +9,7 @@ jest.mock('../config', () => ({
   url: '',
 }));
 
-describe('Render ContextProvider', () => {
+describe('Render ContextProvider with testComponent', () => {
   function TestComponent() {
     const { stateCharacters } = useContext(CharactersContext);
 
@@ -31,7 +31,7 @@ describe('Render ContextProvider', () => {
     return <p>Test failed</p>;
   }
 
-  test('', () => {
+  test('verified render Testcomponent', () => {
     render(
       <Router>
         <ContextProvider>

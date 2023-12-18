@@ -4,18 +4,15 @@ import { FavouritesContext } from '../context/context';
 import { renderHook, act } from '@testing-library/react';
 import { mockFavouritesContext } from '../mocks/favourites.context.mock';
 import { mockCharacter } from '../mocks/character.mock';
+import { Props } from '../context/provider.types';
 
 jest.mock('../config', () => ({
   url: '',
 }));
 
-interface WrapperProps {
-  children: JSX.Element;
-}
-
 describe('Render useFavourites custom hook and testcomponent', () => {
   test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+    const Wrapper = ({ children }: Props) => (
       <FavouritesContext.Provider value={mockFavouritesContext}>
         {children}
       </FavouritesContext.Provider>
@@ -28,7 +25,7 @@ describe('Render useFavourites custom hook and testcomponent', () => {
   });
 
   test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+    const Wrapper = ({ children }: Props) => (
       <FavouritesContext.Provider value={mockFavouritesContext}>
         {children}
       </FavouritesContext.Provider>
@@ -45,7 +42,7 @@ describe('Render useFavourites custom hook and testcomponent', () => {
   });
 
   test('should render component', async () => {
-    const Wrapper = ({ children }: WrapperProps) => (
+    const Wrapper = ({ children }: Props) => (
       <FavouritesContext.Provider value={mockFavouritesContext}>
         {children}
       </FavouritesContext.Provider>
