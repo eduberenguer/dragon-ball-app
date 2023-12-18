@@ -7,7 +7,7 @@ export const FilterByName = ({
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
-    <form className={style.form}>
+    <form className={style.filter_by_name}>
       <input
         className={genericStyle.input}
         type="text"

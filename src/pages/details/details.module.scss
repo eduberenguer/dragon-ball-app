@@ -1,12 +1,17 @@
-.container {
+@import '../../index.module.scss';
+
+.details {
   padding-top: 40px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  width: 80%;
+  height: 100vh;
+
 
   @media (max-width: 1000px) {
     flex-direction: column;
+    align-items: center;
+    padding: 20px
   }
 
   .image {
@@ -27,10 +32,11 @@
   }
 
   .info {
-    max-width: 600px;
-    max-height: 600px;
-    padding: 20px;
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    max-height: 650px;
+    gap: 20px;
   }
 
   .favourite {
@@ -46,4 +52,9 @@
       }
     }
   }
+}
+
+.details_dark {
+  background-color: $color-primary-dark;
+  color: $color-primary-light;
 }

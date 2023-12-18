@@ -1,6 +1,8 @@
 import style from './pagination.module.scss';
 import genericStyle from '../../index.module.scss';
 import { PaginationType } from '../../models/pagination.type';
+import { UiContext } from '../../context/context';
+import { useContext } from 'react';
 
 export const Pagination = ({
   pagination,
@@ -10,9 +12,14 @@ export const Pagination = ({
   handleChangePage: (direction: 'next' | 'previous') => void;
 }) => {
   const { currentPage, previousPage, nextPage, totalPages } = pagination;
+  const { stateUi } = useContext(UiContext);
 
   return (
-    <div className={style.pagination}>
+    <div
+      className={`${style.pagination} ${
+        !stateUi?.mode && style.pagination_dark
+      }`}
+    >
       <button
         onClick={() => handleChangePage('previous')}
         className={`${

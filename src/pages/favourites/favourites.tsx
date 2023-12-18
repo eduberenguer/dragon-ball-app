@@ -1,5 +1,5 @@
 import { useContext, ChangeEvent, useState } from 'react';
-import { FavouritesContext } from '../../context/context';
+import { FavouritesContext, UiContext } from '../../context/context';
 import { Card } from '../../components/card/card';
 
 import style from './favourites.module.scss';
@@ -7,6 +7,7 @@ import { FilterByName } from '../../components/filters/filter.by.name';
 
 export const Favourites = () => {
   const { stateFavourites } = useContext(FavouritesContext);
+  const { stateUi } = useContext(UiContext);
 
   const [value, setValue] = useState(stateFavourites.favourites);
 
@@ -26,10 +27,16 @@ export const Favourites = () => {
   };
 
   return (
-    <div className={style.container}>
+    <div
+      className={`${style.favourites} ${
+        !stateUi?.mode && style.favourites_dark
+      }`}
+    >
       <h2>Favoritos</h2>
-      <FilterByName handleChange={handleChange} />
-      <div className={style.container_cards}>
+      <div>
+        <FilterByName handleChange={handleChange} />
+      </div>
+      <div className={style.favourites_cards}>
         {value?.length ? (
           value?.map((character) => {
             return <Card {...character} key={character.id} />;

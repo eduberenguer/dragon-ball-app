@@ -18,7 +18,9 @@ export const Header = () => {
 
   return (
     <>
-      <header className={style.header}>
+      <header
+        className={`${style.header} ${!stateUi?.mode && style.header_dark}`}
+      >
         <div>
           <Link to="/" className={style.link} onClick={() => getCharacters()}>
             <img src="./logoApp.png" alt="logo" className={style.logo} />

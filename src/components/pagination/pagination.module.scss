@@ -1,6 +1,14 @@
+@import '../../index.module.scss';
+
 .pagination {
   display: flex;
   justify-content: center;
   gap: 10px;
   align-items: center;
+  padding-bottom: 20px;
+}
+
+.pagination_dark {
+  background-color: $color-primary-dark;
+  color: $color-primary-light;
 }

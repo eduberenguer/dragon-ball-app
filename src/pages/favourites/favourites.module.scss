@@ -1,16 +1,18 @@
-.container {
+@import '../../index.module.scss';
+
+.favourites {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  gap: 10px;
   padding: 40px;
+  height: 100vh;
 
-  .container_cards {
+  .favourites_cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-self: center;
+    justify-content: center;
     gap: 40px;
 
     @media (max-width: 1000px) {
@@ -18,4 +20,9 @@
       align-items: center;
     }
   }
+}
+
+.favourites_dark {
+  background-color: $color-primary-dark;
+  color: $color-primary-light
 }

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { optionsRace } from './options.filters/race.options';
 import { optionsAffiliation } from './options.filters/affiliation.options';
-import { CharactersContext } from '../../context/context';
+import { CharactersContext, UiContext } from '../../context/context';
 import { PaginationType } from '../../models/pagination.type';
 
 import style from './filter.by.options.module.scss';
@@ -18,6 +18,7 @@ export const FilterByOptions = ({
   });
   const { getCharactersByOptions, getCharacters } =
     useContext(CharactersContext);
+  const { stateUi } = useContext(UiContext);
 
   const handleOption = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -45,7 +46,9 @@ export const FilterByOptions = ({
   return (
     <>
       {pagination.currentPage === 1 && (
-        <div className={style.select}>
+        <div
+          className={`${style.select} ${!stateUi?.mode && style.select_dark}`}
+        >
           <form aria-label="form">
             <span>Filtrar por raza: </span>
             <select value={selected.race} onChange={handleOption} name="race">

@@ -1,6 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CharactersContext, FavouritesContext } from '../../context/context';
+import {
+  CharactersContext,
+  FavouritesContext,
+  UiContext,
+} from '../../context/context';
 import { Transformation } from '../../components/transformation/transformation';
 import { Comments } from '../../components/comments/comments';
 
@@ -12,6 +16,7 @@ export const Details = () => {
   const { stateCharacters, getCharacterById, changeTransformationPhoto } =
     useContext(CharactersContext);
   const { toggleFavourite, stateFavourites } = useContext(FavouritesContext);
+  const { stateUi } = useContext(UiContext);
   const [currentCharacter, setCurrentCharacter] = useState<
     Character | undefined
   >();
@@ -45,7 +50,9 @@ export const Details = () => {
   };
 
   return (
-    <section className={style.container}>
+    <section
+      className={`${style.details} ${!stateUi?.mode && style.details_dark}`}
+    >
       <div className={style.image}>
         <img
           src={currentCharacter?.image || stateCharacters?.character?.image}

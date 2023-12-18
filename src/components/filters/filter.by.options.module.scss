@@ -1,7 +1,11 @@
+@import '../../index.module.scss';
+
 .select {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
 
   form {
     display: flex;
@@ -13,4 +17,9 @@
       align-items: center;
     }
   }
+}
+
+.select_dark {
+  background-color: $color-primary-dark;
+  color: $color-primary-light;
 }
