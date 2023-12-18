@@ -11,7 +11,7 @@ import { Comments } from '../../components/comments/comments';
 import style from './details.module.scss';
 import { Character } from '../../models/character.types';
 
-export const Details = () => {
+export default function Details() {
   const { id } = useParams();
   const { stateCharacters, getCharacterById, changeTransformationPhoto } =
     useContext(CharactersContext);
@@ -90,4 +90,4 @@ export const Details = () => {
       </div>
     </section>
   );
-};
+}

@@ -4,6 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { Card } from './card';
 import { mockCharacter } from '../../mocks/character.mock';
 
+jest.mock('../../config', () => ({
+  url: '',
+}));
+
 describe('Card', () => {
   beforeEach(() => {
     render(

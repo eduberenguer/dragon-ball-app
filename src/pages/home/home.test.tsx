@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { Home } from './home';
+import Home from './home';
 import { render, screen } from '@testing-library/react';
 import { mockCharactersContext } from '../../mocks/characters.context.mock';
 import { CharactersContext } from '../../context/context';

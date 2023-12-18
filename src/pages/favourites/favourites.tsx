@@ -5,7 +5,7 @@ import { Card } from '../../components/card/card';
 import style from './favourites.module.scss';
 import { FilterByName } from '../../components/filters/filter.by.name';
 
-export const Favourites = () => {
+export default function Favourites() {
   const { stateFavourites } = useContext(FavouritesContext);
   const { stateUi } = useContext(UiContext);
 
@@ -47,4 +47,4 @@ export const Favourites = () => {
       </div>
     </div>
   );
-};
+}

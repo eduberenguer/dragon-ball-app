@@ -1,23 +1,23 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter as Router } from 'react-router-dom';
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './app';
+import { MemoryRouter as Router } from 'react-router-dom';
 
 jest.mock('../config', () => ({
   url: '',
 }));
 
-jest.mock('../pages/Home/Home');
+jest.mock('../pages/Home/Home', () => () => <div>Home page</div>);
 
 describe('Given a App component', () => {
-  test("When it's rendered", () => {
+  test("When it's rendered", async () => {
     render(
-      <Router>
+      <Router initialEntries={['/']}>
         <App />
       </Router>
     );
-
-    const element = screen.getByRole('banner');
-    expect(element).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(/Home page/i)).toBeInTheDocument();
+    });
   });
 });

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Favourites } from './favourites';
+import Favourites from './favourites';
 import { FavouritesContext } from '../../context/context';
 import { mockFavouritesContext } from '../../mocks/favourites.context.mock';
 import { MemoryRouter as Router } from 'react-router-dom';

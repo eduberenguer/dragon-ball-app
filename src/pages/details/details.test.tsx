@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Details } from './details';
+import Details from './details';
 import { CharactersContext, FavouritesContext } from '../../context/context';
 import { mockCharacter } from '../../mocks/character.mock';
 import { initialStateCharacters } from '../../mocks/initial.state.reducer';

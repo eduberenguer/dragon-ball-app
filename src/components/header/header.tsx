@@ -20,6 +20,7 @@ export const Header = () => {
     <>
       <header
         className={`${style.header} ${!stateUi?.mode && style.header_dark}`}
+        data-testid="header"
       >
         <div>
           <Link to="/" className={style.link} onClick={() => getCharacters()}>

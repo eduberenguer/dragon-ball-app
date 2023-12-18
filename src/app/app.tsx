@@ -1,19 +1,23 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Home } from '../pages/home/home';
-import { Favourites } from '../pages/favourites/favourites';
 import { Header } from '../components/header/header';
-import { Details } from '../pages/details/details';
+import { lazy, Suspense } from 'react';
+
+const Home = lazy(() => import('../pages/home/home'));
+const Favourites = lazy(() => import('../pages/favourites/favourites'));
+const Details = lazy(() => import('../pages/details/details'));
 
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/favourites" element={<Favourites />} />
-        <Route path="/details/:id" element={<Details />} />
-      </Routes>
+      <Suspense>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/favourites" element={<Favourites />}></Route>
+          <Route path="/details/:id" element={<Details />}></Route>
+        </Routes>
+      </Suspense>
     </>
   );
 }
