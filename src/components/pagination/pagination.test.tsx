@@ -9,9 +9,9 @@ jest.mock('../../config', () => ({
 
 describe('Pagination', () => {
   const currentPage = 1;
-  const nextPage = 2;
+  const nextPage = '2';
   const totalPages = 6;
-  const previousPage = 0;
+  const previousPage = '';
   const handleChangePage = jest.fn();
 
   beforeEach(() => {
@@ -53,8 +53,8 @@ describe('Pagination', () => {
 describe("When it's rendered with current page = 2", () => {
   test('And previous page button is clicked, setCurrentPage should be called', () => {
     const currentPage = 2;
-    const nextPage = 3;
-    const previousPage = 1;
+    const nextPage = '3';
+    const previousPage = '1';
     const handleChangePage = jest.fn();
     const totalPages = 6;
 
@@ -77,8 +77,8 @@ describe("When it's rendered with current page = 2", () => {
 
   test('And next page button is clicked, setCurrentPage should be called', () => {
     const currentPage = 2;
-    const nextPage = 3;
-    const previousPage = 1;
+    const nextPage = '3';
+    const previousPage = '1';
     const handleChangePage = jest.fn();
     const totalPages = 6;
 

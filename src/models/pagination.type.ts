@@ -1,6 +1,6 @@
 export type PaginationType = {
-  nextPage: number;
-  previousPage: number;
+  nextPage: string;
+  previousPage: string;
   currentPage: number;
   totalPages: number;
 };

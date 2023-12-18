@@ -17,6 +17,5 @@ export const useUi = () => {
   return {
     toggleTheme,
     stateUi,
-    test,
   };
 };

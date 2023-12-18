@@ -11,9 +11,9 @@ jest.mock('../../config', () => ({
 
 describe('FilterByOptions', () => {
   const currentPage = 1;
-  const nextPage = 2;
+  const nextPage = '2';
   const totalPages = 6;
-  const previousPage = 0;
+  const previousPage = '';
 
   beforeEach(() => {
     render(

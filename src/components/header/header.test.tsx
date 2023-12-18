@@ -42,8 +42,8 @@ describe('Header component', () => {
         <Header />
       </Router>
     );
-    const button = screen.getAllByRole('buttonStateMode');
-    await userEvent.click(button[0]);
+    const icon = screen.getAllByRole('buttonStateMode');
+    await userEvent.click(icon[0]);
     const mode = mockUiContext.stateUi?.mode;
 
     expect(mode).toBeTruthy();
