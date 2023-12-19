@@ -1,8 +1,9 @@
-import style from './pagination.module.scss';
-import genericStyle from '../../index.module.scss';
 import { PaginationType } from '../../models/pagination.type';
 import { UiContext } from '../../context/context';
 import { useContext } from 'react';
+
+import style from './pagination.module.scss';
+import genericStyle from '../../index.module.scss';
 
 export const Pagination = ({
   pagination,

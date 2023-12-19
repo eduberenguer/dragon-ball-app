@@ -4,7 +4,7 @@ import { UiContext } from '../../context/context';
 import { CharactersContext } from '../../context/context';
 import { IoInvertMode, IoInvertModeOutline } from 'react-icons/io5';
 
-import style from './Header.module.scss';
+import style from './header.module.scss';
 import genericStyle from '../../index.module.scss';
 
 export const Header = () => {
