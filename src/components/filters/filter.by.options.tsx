@@ -50,7 +50,7 @@ export const FilterByOptions = ({
           className={`${style.select} ${!stateUi?.mode && style.select_dark}`}
         >
           <form aria-label="form">
-            <span>Filtrar por raza: </span>
+            <label htmlFor="race">Filtrar por raza:</label>
             <select value={selected.race} onChange={handleOption} name="race">
               <option value="default"> Todos </option>
               {optionsRace.map((race, index) => {
@@ -61,7 +61,7 @@ export const FilterByOptions = ({
                 );
               })}
             </select>
-            <span>Filtrar por afiliación: </span>
+            <label htmlFor="affiliation">Filtrar por afiliación:</label>
             <select
               value={selected.affiliation}
               onChange={handleOption}

@@ -16,7 +16,7 @@ export const Card = (character: Character) => {
       <p>{character.name}</p>
       <img
         src={character.image}
-        alt={character.name}
+        alt={character.description}
         className={style.characterImage}
       />
     </Link>
