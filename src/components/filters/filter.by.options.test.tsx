@@ -21,10 +21,17 @@ describe('Given a Filter by option component', () => {
     );
   });
 
-  test('should render the component', async () => {
+  test('should render the component', () => {
     const button = screen.getByRole('button');
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     expect(button).toBeInTheDocument();
+  });
+
+  test('should change select value', () => {
+    const select = screen.getAllByRole('combobox');
+    fireEvent.change(select[0], { target: { value: 'Human' } });
+
+    expect((select[0] as HTMLSelectElement).value).toBe('Human');
   });
 });
