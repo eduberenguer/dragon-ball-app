@@ -52,3 +52,7 @@ Contributions are welcome! If you'd like to contribute, follow these steps:
 ## Testing coverage:
 
 ![coverage](./public/coverage.png)
+
+## Testing coverage:
+
+![lighthouse](./public/lighthouse.png)
