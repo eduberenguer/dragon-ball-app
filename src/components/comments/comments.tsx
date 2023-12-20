@@ -1,6 +1,7 @@
 import { SyntheticEvent, useContext, useState } from 'react';
 import { FavouritesContext } from '../../context/context';
 import { Character } from '../../models/character.types';
+import { UiContext } from '../../context/context';
 
 import style from './comments.module.scss';
 import genericStyle from '../../index.module.scss';
@@ -9,6 +10,7 @@ export const Comments = (character: Character | undefined) => {
   const [commentValue, setCommentValue] = useState<string>('');
   const { stateFavourites } = useContext(FavouritesContext);
   const { addComment } = useContext(FavouritesContext);
+  const { stateUi } = useContext(UiContext);
 
   const handleComment = (
     character: Character | undefined,
@@ -22,7 +24,9 @@ export const Comments = (character: Character | undefined) => {
   };
 
   return (
-    <div className={style.container}>
+    <div
+      className={`${style.comments} ${!stateUi.mode && style.comments_dark}`}
+    >
       <p>Añade comentarios: </p>
       <form
         aria-label="form"

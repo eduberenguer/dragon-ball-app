@@ -3,18 +3,19 @@
 .select {
   display: flex;
   justify-content: center;
-  padding: 20px;
   width: 100%;
   height: 100%;
+  padding-top: 20px;
 
   form {
     display: flex;
     align-items: center;
     gap: 20px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
       flex-direction: column;
       align-items: center;
+      padding: 10px 0px 10px 0px;
     }
   }
 }

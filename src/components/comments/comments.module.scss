@@ -1,4 +1,6 @@
-.container {
+@import '../../index.module.scss';
+
+.comments {
   .form {
     display: flex;
     align-items: end;
@@ -14,4 +16,8 @@
   .comment {
     margin-top: 10px;
   }
+}
+
+.comments_dark {
+  background-color: $color-primary-dark;
 }
